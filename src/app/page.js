@@ -11,7 +11,19 @@ export default function Home() {
         Experience the best nightlife in town with
         us!
       </p>
-      <Button>Click me</Button>
+      <Button variant="default">Click me</Button>
+      <Button
+        variant="secondary"
+        className="block mt-4"
+      >
+        Click me too
+      </Button>
+      <Button
+        variant="highlight"
+        className="block mt-4"
+      >
+        Highlight Button
+      </Button>
     </main>
   );
 }
