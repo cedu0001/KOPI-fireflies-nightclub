@@ -113,6 +113,8 @@ body {
    font-family: var(--font-ubuntu);
    background-color: var(--background);
    color: var(--foreground);
+   max-width: 1600px;
+    margin: 0 auto;
 }
 h1, h2, h3, h4, h5 {
   color: var(--foreground)
