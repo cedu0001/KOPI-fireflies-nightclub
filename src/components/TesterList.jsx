@@ -3,7 +3,7 @@ import CardTest from "./TestCard";
 
 const ListTest = () => {
   return (
-    <section>
+    <section className="flex flex-wrap">
       <GetEvents />
     </section>
   );
@@ -16,8 +16,9 @@ export async function GetEvents() {
 
   try {
     const response = await fetch(
-      "https://nightclub-api.onrender.com/events",
+      `${process.env.NEXT_PUBLIC_API_URL}/events`,
     );
+
     const FetchEvents = await response.json();
 
     return FetchEvents.map((event) => {
@@ -26,7 +27,8 @@ export async function GetEvents() {
           key={event.id}
           id={event.id}
           title={event.title}
-          imageUrl={event.assets.url}
+          imageUrl={`${process.env.NEXT_PUBLIC_API_URL}${event.asset?.url}`}
+          alt={event.asset.alt}
         />
       );
     });
