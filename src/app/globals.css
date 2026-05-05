@@ -109,6 +109,6 @@
 
 body {
    font-family: var(--font-ubuntu);
-   background-color: green;
+   background-color: var(--background);
    color: var(--foreground);
 }
