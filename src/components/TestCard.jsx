@@ -8,7 +8,7 @@ const CardTest = ({
   alt,
 }) => {
   return (
-    <section className="w-80">
+    <section className="w-72">
       <img src={imageUrl} alt={alt} />
       <h3>{title}</h3>
       <p>ID: {id}</p>

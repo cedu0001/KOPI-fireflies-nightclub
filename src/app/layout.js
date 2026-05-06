@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${ubuntu.variable} h-full antialiased text-foreground`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full">
         {children}
       </body>
     </html>
