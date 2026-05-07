@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import TesterList from "@/components/TesterList";
 import Newsletter from "@/components/Newsletter";
+import Testimonials from "@/components/testimonials/Testimonials";
 
 export default function Home() {
 	return (
@@ -33,6 +34,7 @@ export default function Home() {
 			<h3 className="full-left">
 				Tester venstre side, jeg håber du også virker! Men det for jeg jo heldigvis at se lige om lidt hihi
 			</h3>
+			<Testimonials></Testimonials>
 			<Newsletter></Newsletter>
 		</main>
 	);
