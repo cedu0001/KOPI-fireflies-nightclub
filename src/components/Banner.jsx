@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Banner = ({title}) => {
     return ( 
-        <article className="relative mb-20">
+        <article className="relative mb-20 full-width">
             <Image
             src="/assets/bg/footerbg.jpg"
             width="1600"
