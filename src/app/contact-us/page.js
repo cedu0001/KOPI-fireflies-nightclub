@@ -1,7 +1,7 @@
 import ContactForm from "@/components/ContactForm";
 import Banner from "@/components/Banner";
 import Headline from "@/components/Headline";
-import Gallery from "@/components/Gallery";
+import GalleryMap from "@/components/GalleryMap";
 
 const ContactUs = () => {
   return (
@@ -9,7 +9,7 @@ const ContactUs = () => {
       <Banner title="CONTACT US" />
       <ContactForm />
 
-      <Gallery />
+      <GalleryMap />
     </main>
   );
 };
