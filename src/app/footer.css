@@ -1,10 +1,12 @@
 /* Footer */
-footer {
+footer,
+.bg-index {
 	position: relative;
 	background: url("/assets/bg/footerbg.jpg") no-repeat center/cover;
 }
 
-footer::before {
+footer::before,
+.bg-index::before {
 	content: "";
 	position: absolute;
 	inset: 0;
@@ -13,7 +15,8 @@ footer::before {
 	z-index: 1;
 }
 
-footer > * {
+footer > *,
+.bg-index > * {
 	position: relative;
 	z-index: 2;
 }
