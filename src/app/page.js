@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import TesterList from "@/components/TesterList";
 import Newsletter from "@/components/Newsletter";
 import Testimonials from "@/components/testimonials/Testimonials";
+import MobileBlog from "@/components/MobileBlog";
 
 export default function Home() {
 	return (
@@ -35,6 +36,7 @@ export default function Home() {
 				Tester venstre side, jeg håber du også virker! Men det for jeg jo heldigvis at se lige om lidt hihi
 			</h3>
 			<Testimonials></Testimonials>
+			<MobileBlog></MobileBlog>
 			<Newsletter></Newsletter>
 		</main>
 	);
