@@ -6,7 +6,7 @@ import { FaFacebookF } from "react-icons/fa";
 
 import Image from "next/image";
 
-import "../app/footer.css";
+import "../app/style.css";
 
 const Footer = () => {
 	return (
