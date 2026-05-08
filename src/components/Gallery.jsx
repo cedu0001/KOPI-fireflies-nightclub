@@ -1,22 +1,29 @@
-import Headline from "./Headline";
+"use client"
 import Image from "next/image";
+import { motion } from "framer-motion";
+import "@/app/gallery.css"
 
 const Gallery = ({
-  alt,
   imageUrl,
-  height,
+  alt,
+  clicked,
   width,
+  height
 }) => {
   return (
-    <article>
-      <Image
-        src={imageUrl}
-        width={width}
+    <motion.div
+    initial={{ opacity: 0, x: -150}}
+    animate= {{opacity: 1, x: 0}}
+    transition={{duration: 1, ease: "easeOut"}}
+    className="image-hover"
+    onClick={clicked}
+    >
+      <Image src={imageUrl} width={width}
         height={height}
         alt={alt}
-        className="w-auto object-cover h-[300px]"
+        className="w-auto object-cover max-h-[300px]"
       />
-    </article>
+    </motion.div>
   );
 };
 export default Gallery;

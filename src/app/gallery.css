@@ -1,0 +1,58 @@
+.image-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-hover img {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.image-hover:hover img {
+    opacity: 0.5;
+}
+
+/* Top + bottom border */
+.image-hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-top: 2px solid var(--highlight-primary);
+  border-bottom: 2px solid var(--highlight-primary);
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Corner triangles */
+.image-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--highlight-primary) 0 32px,
+      transparent 32px
+    ) top left,
+
+    linear-gradient(
+      -45deg,
+      var(--highlight-primary) 0 32px,
+      transparent 32px
+    ) bottom right;
+
+  background-size: 64px 64px;
+  background-repeat: no-repeat;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Activate decorations */
+.image-hover:hover::before,
+.image-hover:hover::after {
+  opacity: 1;
+}
