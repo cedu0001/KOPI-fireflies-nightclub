@@ -66,7 +66,7 @@ imageUrl={`${process.env.NEXT_PUBLIC_API_URL}${gallery.asset?.url}`}
 
       <Button
   variant="square_btn"
-  className="absolute left-[-80px] top-1/2 -translate-y-1/2"
+  className="absolute left-[-20px] top-1/2 -translate-y-1/2"
   onClick={() =>
     setSelectedIndex((prev) =>
       prev === 0
@@ -80,7 +80,7 @@ imageUrl={`${process.env.NEXT_PUBLIC_API_URL}${gallery.asset?.url}`}
 
       <Button
   variant="square_btn"
-  className="absolute right-[-80px] top-1/2 -translate-y-1/2"
+  className="absolute right-[-20px] top-1/2 -translate-y-1/2"
   onClick={() =>
     setSelectedIndex((prev) =>
       prev === galleryData.length - 1
