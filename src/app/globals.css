@@ -168,6 +168,12 @@ main {
 			width: 100%;
 			max-width: 1400px;
 			margin-left: auto;
+			>:first-child {
+			order: 2;
+		}
+		>:last-child {
+			order: 1;
+		}
 		}
 	}
 	.full-left {
