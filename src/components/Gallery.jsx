@@ -1,71 +1,29 @@
-import Headline from "./Headline";
+"use client"
 import Image from "next/image";
+import { motion } from "framer-motion";
+import "@/app/gallery.css"
 
-const Gallery = () => {
+const Gallery = ({
+  imageUrl,
+  alt,
+  clicked,
+  width,
+  height
+}) => {
   return (
-    <article className="full-width ">
-      <Headline title="GALLERY" />
-      <section className="flex flex-wrap justify-center ml-auto mr-auto mt-24">
-        <Image
-          src="/assets/content-img/gallery1_big.jpg"
-          width="400"
-          height="400"
-          alt="Gallery image 1"
-          className="w-auto object-cover h-[300px]"
-        />
-        <Image
-          src="/assets/content-img/gallery2_big.jpg"
-          width="400"
-          height="400"
-          alt="Gallery image 2"
-          className="w-auto object-cover h-[300px]"
-        />
-        {/* <Image
-          src="/assets/content-img/gallery3_big.jpg"
-          width="400"
-          height="400"
-          alt="Gallery image 3"
-          className="w-auto object-cover h-[300px]"
-        /> */}
-
-        <Image
-          src="/assets/content-img/gallery5_big.jpg"
-          width="400"
-          height="400"
-          alt="Gallery image 5"
-          className="w-auto object-cover h-[300px]"
-        />
-        <Image
-          src="/assets/content-img/gallery6_big.jpg"
-          width="400"
-          height="400"
-          alt="Gallery image 6"
-          className="w-auto object-cover h-[300px]"
-        />
-        <Image
-          src="/assets/content-img/gallery7_big.jpg"
-          width="400"
-          height="400"
-          alt="Gallery image 7"
-          className="w-auto object-cover h-[300px]"
-        />
-        <Image
-          src="/assets/content-img/gallery9_big.jpg"
-          width="400"
-          height="400"
-          alt="Gallery image 9"
-          className="w-auto object-cover h-[300px]"
-        />
-        {/* <Image
-          src="/assets/content-img/gallery10_big.jpg"
-          width="400"
-          height="400"
-          alt="Gallery image 10"
-          className="w-auto object-cover h-[250px]"
-        /> */}
-      </section>
-    </article>
+    <motion.div
+    initial={{ opacity: 0, x: -150}}
+    animate= {{opacity: 1, x: 0}}
+    transition={{duration: 1, ease: "easeOut"}}
+    className="image-hover"
+    onClick={clicked}
+    >
+      <Image src={imageUrl} width={width}
+        height={height}
+        alt={alt}
+        className="w-auto object-cover max-h-[300px]"
+      />
+    </motion.div>
   );
 };
-
 export default Gallery;

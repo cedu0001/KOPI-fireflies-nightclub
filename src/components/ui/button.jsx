@@ -1,6 +1,7 @@
+"use client"
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
 import { cva } from "class-variance-authority";
-
+import {motion} from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
@@ -15,7 +16,7 @@ const buttonVariants = cva(
           outline:
           "border-foreground border-2 pl-1 pr-1 bg-background hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground",
 				secondary:
-					"bg-primary p-4 text-primary-foreground border-t-2 border-b-2 p-4 pr-6 pl-6 border-primary-foreground cursor-pointer [a]:hover:bg-primary/80 aria-expanded:bg-primary aria-expanded:text-primary-foreground",
+					"relative bg-primary p-4 text-primary-foreground border-t-2 border-b-2 p-4 pr-6 pl-6 border-primary-foreground cursor-pointer",
 				highlight:
 					"relative bg-gradient-to-br from-highlight-primary to-highlight-accent p-4 pr-6 pl-6 border-2 cursor-pointer after:absolute after:top-0 after:right-0 after:w-5 after:h-5 after:border-t-2 after:border-r-2 after:border-primary-foreground/50 after:opacity-100 after:blur-[1px]",
 				square_btn: "h-[43px] w-[43px] border-white border-2 rounded-none bg-black cursor-pointer hover:",
@@ -28,18 +29,114 @@ const buttonVariants = cva(
 	},
 );
 
-function Button({ className, variant = "default", size = "default", ...props }) {
+const MotionButton = motion.create(ButtonPrimitive);
+
+function Button({ className, variant = "default", size = "default", children, ...props }) {
+	const isHighlight = variant === "highlight";
+	const isSecondary = variant === "secondary";
 	return (
-		<ButtonPrimitive
-			data-slot="button"
-			className={cn(
-				buttonVariants({
-					variant,
-					className,
-				}),
-			)}
-			{...props}
-		/>
+		<MotionButton
+      data-slot="button"
+	  initial="rest"
+      whileHover="hover"
+      animate="rest"
+      className={cn(
+        buttonVariants({
+          variant,
+          className,
+        }),
+        isHighlight && "overflow-hidden"
+      )}
+      {...props}
+    >
+
+
+      {isHighlight && (
+        <motion.div
+  variants={{
+    rest: {
+      scale: 0,
+      opacity: 0,
+	  x: -30,
+	  y: -30,
+    },
+    hover: {
+      scale: 10,
+      opacity: 1,
+	  x: 0,
+	  y: 0,
+    },
+  }}
+  transition={{
+    duration: 0.6,
+    ease: "easeOut",
+  }}
+  className="pointer-events-none absolute bottom-0 right-0 z-0 h-10 w-10 rounded-full bg-highlight-accent blur-2xl"
+/>
+      )}
+
+	  {isSecondary && (
+  <>
+    {/* top line */}
+    <motion.div
+      variants={{
+        rest: {
+          scaleX: 0,
+        },
+        hover: {
+          scaleX: 1,
+        },
+      }}
+      transition={{
+        duration: 0.4,
+        ease: "easeOut",
+      }}
+      className="absolute top-[-2px] right-0 h-[2px] w-full origin-right bg-highlight-secondary"
+    />
+
+    {/* bottom line */}
+    <motion.div
+      variants={{
+        rest: {
+          scaleX: 0,
+        },
+        hover: {
+          scaleX: 1,
+        },
+      }}
+      transition={{
+        duration: 0.4,
+        ease: "easeOut",
+      }}
+      className="absolute bottom-[-2px] left-0 h-[2px] w-full origin-left bg-highlight-secondary"
+    />
+  </>
+)}
+
+    {isSecondary ? (
+  <motion.span
+    variants={{
+      rest: {
+        color: "var(--color-primary-foreground)",
+      },
+      hover: {
+        color: "var(--color-highlight-secondary)",
+      },
+    }}
+    transition={{
+      delay: 0.35,
+      duration: 0.2,
+    }}
+    className="relative z-10"
+  >
+    {children}
+  </motion.span>
+) : (
+  <span className="relative z-10">
+    {children}
+  </span>
+)}
+    </MotionButton>
 	);
 }
 
