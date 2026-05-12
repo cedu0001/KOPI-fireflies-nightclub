@@ -5,11 +5,13 @@ import Newsletter from "@/components/Newsletter";
 import Testimonials from "@/components/testimonials/Testimonials";
 import MobileBlog from "@/components/MobileBlog";
 import HeroIndex from "@/components/HeroIndex";
+import GlobalNav from "@/components/globalnavigation/GlobalNav";
 
 export default function Home() {
 	return (
 		<main>
 			<HeroIndex />
+			<GlobalNav />
 			<h1 className="text-5xl font-bold">Welcome to Fireflies Nightclub</h1>
 			<TesterList />
 			<p className="mt-4 text-lg text-gray-600 dark:text-gray-300">Experience the best nightlife in town with us!</p>
