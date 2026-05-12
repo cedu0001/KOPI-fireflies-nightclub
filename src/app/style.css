@@ -5,6 +5,9 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+
+	animation: heroFade 2s ease forwards;
+	opacity: 0;
 }
 
 @media (max-width: 640px) {
@@ -12,6 +15,12 @@
 		background-size: 400%;
 		background-position: center;
 		height: 600px;
+	}
+}
+
+@keyframes heroFade {
+	to {
+		opacity: 1;
 	}
 }
 
