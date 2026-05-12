@@ -56,3 +56,18 @@
 .image-hover:hover::after {
   opacity: 1;
 }
+
+/* Event signle-view */
+.event-layout {
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+@media (max-width: 980px) {
+  .event-layout {
+    flex-direction: column;
+    
+  }
+
+}
