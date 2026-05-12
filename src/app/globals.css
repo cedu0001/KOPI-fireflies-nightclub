@@ -157,7 +157,13 @@ main {
 	> * {
 		grid-column: 2;
 	}
-	.full-right {
+	.full-width {
+		grid-column: 1/-1;
+	}
+}
+
+@media (width >= 980px) {
+.full-right {
 		grid-column: 2/-1;
 		> * {
 			display: grid;
@@ -188,8 +194,5 @@ main {
 			max-width: 1400px;
 			margin-right: auto;
 		}
-	}
-	.full-width {
-		grid-column: 1/-1;
 	}
 }

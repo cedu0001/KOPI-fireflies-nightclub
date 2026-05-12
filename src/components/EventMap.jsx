@@ -50,7 +50,6 @@ const EventMap = () => {
 
         {currentEvents.map((event, index) => {
 
-          // global index
           const actualIndex = startIndex + index;
 
           return (
@@ -79,6 +78,7 @@ const EventMap = () => {
           <PaginationItem>
             <PaginationPrevious
               href="#"
+              className="h-8"
               onClick={(e) => {
                 e.preventDefault();
 
@@ -125,53 +125,3 @@ const EventMap = () => {
 };
 
 export default EventMap;
-/* "use client"
-import { useEffect } from "react";
-import EventCard from "./EventCard";
-
-const EventMap = () => {
-    useEffect(() => {
-        async function GetEvents() {
-            try {
-                const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/events`,
-    );
-    const FetchEvents = await response.json();
-    
-            }
-        }
-    })
-  return (
-    <section className="flex flex-wrap gap-4">
-      <GetEvents />
-    </section>
-  );
-};
-
-export default EventMap;
-
-export async function GetEvents() {
-  "use server";
-
-  try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/events`,
-    );
-
-    const FetchEvents = await response.json();
-
-    return FetchEvents.map((event) => {
-      return (
-        <EventCard
-          eventInfo={event}
-          key={event.id}
-          id={event.id}
-          imageUrl={`${process.env.NEXT_PUBLIC_API_URL}${event.heroAsset.url}`}
-          alt={event.asset.alt}
-        />
-      );
-    });
-  } catch (error) {
-    return <p>Failed to load events.</p>;
-  }
-} */
