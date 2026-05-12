@@ -29,6 +29,19 @@
 	z-index: 2;
 }
 
+/* Global navigation */
+.nav-style {
+	padding: 20px;
+	border-top: 2px solid var(--highlight-primary);
+	border-bottom: 2px solid var(--highlight-primary);
+	background:
+		linear-gradient(135deg, var(--highlight-primary) 0 32px, transparent 32px) top left,
+		linear-gradient(-45deg, var(--highlight-primary) 0 32px, transparent 32px) bottom right;
+
+	background-size: 64px 64px;
+	background-repeat: no-repeat;
+}
+
 /* Footer */
 footer,
 .bg-index {
