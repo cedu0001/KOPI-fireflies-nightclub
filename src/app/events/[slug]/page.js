@@ -1,4 +1,7 @@
 import Image from "next/image";
+import { GiMusicalNotes } from "react-icons/gi";
+import { Button } from "@/components/ui/button";
+
 export default async function EventSinglePage({ params }) {
 
   const { slug } = await params;
@@ -44,14 +47,14 @@ const formattedEventstart = Intl.DateTimeFormat("en-GB", {
         width={event.heroAsset.width}
         height={event.heroAsset.height}
         alt={event.heroAsset.alt}
-        className="full-width w-screen"
+        className="full-width w-screen relative"
       />
       <section className="flex justify-between">
         <div>
       <h1 className="inline-block !py-0">{event.title}</h1>
       <h2 className="inline-block !py-0 ml-4 !text-highlight-secondary">{formattedDate}</h2>
       <div>
-    <p className="inline">Doors open: {formattedDoorsOpen}</p><p className="inline ml-4">Start: {formattedEventstart}</p><p className="inline ml-4">Location: </p>
+    <p className="inline">Doors open: {formattedDoorsOpen}</p><p className="inline ml-4">Start: {formattedEventstart}</p><p className="inline ml-4">Location: {event.location}</p>
     </div>
       </div>
       <div>
@@ -59,11 +62,53 @@ const formattedEventstart = Intl.DateTimeFormat("en-GB", {
         <h3 className="inline-block ml-4">{event.ageLimit}</h3>
       </div>
       </section>
-      <section>
+      <article className="flex justify-between">
+        <section className="max-w-200">
         <div>
             <p className="font-medium">{event.excerpt}</p>
       <p>{event.content}</p>
       </div>
+      </section>
+      <section>
+      <div className="flex flex-col">
+        <div>
+  <p>This evenings lineup consists of:</p>
+
+  <ul className="mt-2 flex flex-col gap-2">
+    {event.lineup.map((artist, index) => (
+      <li key={index} className="flex gap-4">
+        <GiMusicalNotes color="white"/>
+        {artist}
+      </li>
+    ))}
+  </ul>
+</div>
+       <div>
+  <p>The schedule:</p>
+
+  <ul className="mt-2 flex flex-col gap-2">
+    {event.schedule.map((item, index) => (
+      <li
+        key={index}
+        className="flex gap-4"
+      >
+        <span className="text-highlight-secondary">
+          {item.time}
+        </span>
+
+        <span>
+          {item.label}
+        </span>
+      </li>
+    ))}
+  </ul>
+</div>
+      </div>
+      </section>
+      </article>
+      <section className="flex justify-end my-4">
+        <h3 className="!py-0 mr-4">{event.price}</h3>
+        <Button variant="highlight">BOOK NOW</Button>
       </section>
     </main>
   );
