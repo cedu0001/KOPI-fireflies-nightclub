@@ -56,6 +56,13 @@ footer,
 .bg-index {
 	position: relative;
 	background: url("/assets/bg/footerbg.jpg") no-repeat center/cover;
+	height: 900px;
+}
+
+@media (max-width: 640px) {
+	.bg-index {
+		height: 1200px;
+	}
 }
 
 footer::before,
@@ -99,3 +106,5 @@ article.grid-footer:nth-child(2) {
 p.text-style {
 	font-size: var(--step--1);
 }
+
+/* Testimonials */
