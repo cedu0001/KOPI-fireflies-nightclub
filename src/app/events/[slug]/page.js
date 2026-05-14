@@ -3,7 +3,7 @@ import SingleEvent from "@/components/single-event"
 const SignleEvent = () => {
     return ( 
         <main>
-            <SignleEvent/>
+            <SingleEvent />
         </main>
      );
 }

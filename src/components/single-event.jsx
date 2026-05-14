@@ -35,7 +35,7 @@ export default async function EventSinglePage({ params }) {
   hour12: false,
 }).format(new Date(event.doorsOpen));
 
-const formattedEventstart = Intl.DateTimeFormat("en-GB", {
+const formattedEventstart = new Intl.DateTimeFormat("en-GB", {
   hour: "2-digit",
   minute: "2-digit",
   hour12: false,
