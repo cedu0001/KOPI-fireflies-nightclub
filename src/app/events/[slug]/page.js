@@ -1,11 +1,11 @@
 import SingleEvent from "@/components/single-event"
 
-const SignleEvent = () => {
+const SignleEventSite = ({params}) => {
     return ( 
         <main>
-            <SingleEvent />
+            <SingleEvent params={params}/>
         </main>
      );
 }
  
-export default SignleEvent;
+export default SignleEventSite;
