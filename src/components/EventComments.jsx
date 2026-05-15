@@ -20,17 +20,17 @@ const EventComments = ({comments}) => {
           return (
             <article
               key={comment.id}
-              className="p-6"
+              
             >
 
               <div className="mb-2 flex gap-4 items-baseline">
 
-                <h4 className="!py-0">
+                <h5 className="!py-0">
                   {comment.name}
-                </h4>
+                </h5>
 
                 <span className="text-highlight-secondary">
-                  {formattedDate}
+                  Posted {formattedDate}
                 </span>
 
               </div>

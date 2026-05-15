@@ -2,14 +2,9 @@ import Image from "next/image";
 import { GiMusicalNotes } from "react-icons/gi";
 import { Button } from "@/components/ui/button";
 import "@/app/gallery.css";
-import Banner from "./Banner";
 
 export default function EventSinglePage({ event }) {
 
-  
-  if (!event) {
-    return <h1>Event not found</h1>;
-  }
   const formattedDate = new Date(event.date).toLocaleDateString(
   "en-GB",
   {
@@ -32,7 +27,6 @@ const formattedEventstart = new Intl.DateTimeFormat("en-GB", {
   return (
     <article>
         <section className="relative full-width">
-          <Banner title={event.title}/>
         <Image
         src={`${process.env.NEXT_PUBLIC_API_URL}${event.heroAsset.url}`}
         width={event.heroAsset.width}
@@ -42,7 +36,7 @@ const formattedEventstart = new Intl.DateTimeFormat("en-GB", {
       />
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/20 to-primary"/>
       </section>
-      <section className="flex justify-between z-20 -mt-28 mb-12">
+      <section className="flex relative justify-between z-20 -mt-28 mb-12">
         <div>
       <h1 className="inline-block z-30 !py-0 mr-4">{event.title}</h1>
       <h2 className="inline-block z-30 !py-0  !text-highlight-secondary">{formattedDate}</h2>
