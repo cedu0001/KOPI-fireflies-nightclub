@@ -107,4 +107,31 @@ p.text-style {
 	font-size: var(--step--1);
 }
 
-/* Testimonials */
+/* Latest Video */
+.video-wrapper {
+	position: relative;
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+}
+
+.video-wrapper::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 64px;
+	height: 64px;
+	background: linear-gradient(135deg, var(--highlight-primary) 0 50%, transparent 50% 100%);
+	z-index: 10;
+}
+
+.video-wrapper::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 64px;
+	height: 64px;
+	background: linear-gradient(-45deg, var(--highlight-primary) 0 50%, transparent 50% 100%);
+	z-index: 10;
+}
