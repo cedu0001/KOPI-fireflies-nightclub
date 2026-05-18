@@ -1,14 +1,14 @@
 import ContactForm from "@/components/ContactForm";
 import Banner from "@/components/Banner";
-import Headline from "@/components/Headline";
 import GalleryMap from "@/components/GalleryMap";
+import FeaturedEvents from "@/components/FeaturedEvents";
 
 const ContactUs = () => {
   return (
     <main>
       <Banner title="CONTACT US" />
       <ContactForm />
-
+      <FeaturedEvents/>
       <GalleryMap />
     </main>
   );
