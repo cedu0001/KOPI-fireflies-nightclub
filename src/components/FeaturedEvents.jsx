@@ -11,13 +11,10 @@ const FeaturedEvents = async () => {
 
   const data = await response.json();
 
-  const featuredEvents = data.filter(
-    (event) => event.isFeatured
-  );
 
   return (
     <FeaturedEventsClient
-      events={featuredEvents}
+      events={data}
     />
   );
 };

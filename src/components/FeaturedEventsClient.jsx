@@ -5,7 +5,7 @@ import FeaturedEventCard from "./FeaturedEventCard";
 const FeaturedEventsClient = ({ events }) => {
 
   return (
-    <section className="gap-4 mr-auto ml-auto">
+    <section className="gap-12 flex mr-auto ml-auto">
 
       {events.map((event) => (
         <section className=" max-w-[400px]">
