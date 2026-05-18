@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { GiMusicalNotes } from "react-icons/gi";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import "@/app/gallery.css";
 
 export default function EventSinglePage({ event }) {
@@ -95,7 +96,8 @@ const formattedEventstart = new Intl.DateTimeFormat("en-GB", {
       </article>
       <section className="flex justify-end my-4 items-center">
         <h3 className="!py-0 mr-4">{event.price}</h3>
-        <Button variant="highlight">BOOK NOW</Button>
+        <Link href={`/book-table?event=${event.id}`}>
+        <Button variant="highlight">BOOK NOW</Button></Link>
       </section>
     </article>
   );

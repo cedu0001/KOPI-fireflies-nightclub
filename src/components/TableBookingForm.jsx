@@ -1,7 +1,10 @@
 import Form from "next/form";
 import { InputBasic } from "./ui/input";
 import { Button } from "./ui/button";
-const TableBookingForm = () => {
+const TableBookingForm = ({
+  events,
+  selectedEvent,
+}) => {
     return ( 
         <Form className="mb-16">
             <h2>BOOK A TABLE</h2>
@@ -14,10 +17,28 @@ const TableBookingForm = () => {
             className="max-w-148 min-w-48"/>
             <InputBasic type="number" placeholder="Number Of Guests"
             className="max-w-148 min-w-48"/>
-            <select id="arrangement"
-            className="w-full border border-input bg-transparent px-2.5 py-4 max-w-148 min-w-48 mb-4 file:bg-transparent text-text file:text-foreground">
-                <option className="w-full">Mappes???</option>
-            </select>
+            <select
+          name="eventId"
+          defaultValue={selectedEvent || ""}
+          className="
+            w-full border border-input
+            bg-transparent px-2.5 py-4
+            max-w-148 min-w-48 mb-4
+            text-text"      >
+
+          <option value="">
+            Select Event
+          </option>
+
+          {events.map((event) => (
+            <option
+              key={event.id}
+              value={event.id}
+            >
+              {event.title}
+            </option>
+          ))}
+        </select>
             <InputBasic type="tel" placeholder="Your Telephone Number"
             className="max-w-148 min-w-48"/>
             </section>
@@ -27,7 +48,7 @@ const TableBookingForm = () => {
         className="h-40 border w-full outline-none px-2.5 pt-2.5 mb-8"
       />
       <div className="flex justify-end">
-        <Button variant="secondary">
+        <Button variant="secondary" type="submit">
         RESERVE
         </Button>
       </div>
