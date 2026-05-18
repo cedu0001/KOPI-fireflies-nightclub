@@ -3,25 +3,8 @@ import { GiMusicalNotes } from "react-icons/gi";
 import { Button } from "@/components/ui/button";
 import "@/app/gallery.css";
 
-export default async function EventSinglePage({ params }) {
+export default function EventSinglePage({ event }) {
 
-  const { slug } = await params;
-
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/events`,
-    {
-      cache: "no-store",
-    }
-  );
-
-  const data = await response.json();
-  const event = data.find(
-    (event) => event.slug === slug
-  );
-
-  if (!event) {
-    return <h1>Event not found</h1>;
-  }
   const formattedDate = new Date(event.date).toLocaleDateString(
   "en-GB",
   {
@@ -49,14 +32,14 @@ const formattedEventstart = new Intl.DateTimeFormat("en-GB", {
         width={event.heroAsset.width}
         height={event.heroAsset.height}
         alt={event.heroAsset.alt}
-        className="full-width w-screen relative"
+        className="full-width w-screen relative z-0"
       />
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/20 to-primary"/>
       </section>
-      <section className="flex justify-between z-10 -mt-28 mb-12">
+      <section className="flex relative justify-between z-20 -mt-28 mb-12 col-2">
         <div>
-      <h1 className="inline-block !py-0 mr-4">{event.title}</h1>
-      <h2 className="inline-block !py-0  !text-highlight-secondary">{formattedDate}</h2>
+      <h1 className="inline-block z-30 !py-0 mr-4">{event.title}</h1>
+      <h2 className="inline-block z-30 !py-0  !text-highlight-secondary">{formattedDate}</h2>
       <div>
     <p className="inline">Doors open: {formattedDoorsOpen}</p><p className="inline ml-4">Start: {formattedEventstart}</p><p className="inline ml-4">Location: {event.location}</p>
     </div>
@@ -73,12 +56,6 @@ const formattedEventstart = new Intl.DateTimeFormat("en-GB", {
       <p>{event.content}</p>
       </div>
       </section>
-      {/* <Image 
-      src="/assets/volume-bars.png"
-      height="80"
-      width="60"
-      alt="music volume bars"
-      className="max-h-80"/> */}
       <section>
       <div className="flex flex-col">
         <div>
