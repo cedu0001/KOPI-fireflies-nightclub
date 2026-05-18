@@ -36,7 +36,7 @@ const formattedEventstart = new Intl.DateTimeFormat("en-GB", {
       />
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/20 to-primary"/>
       </section>
-      <section className="flex relative justify-between z-20 -mt-28 mb-12">
+      <section className="flex relative justify-between z-20 -mt-28 mb-12 col-2">
         <div>
       <h1 className="inline-block z-30 !py-0 mr-4">{event.title}</h1>
       <h2 className="inline-block z-30 !py-0  !text-highlight-secondary">{formattedDate}</h2>
