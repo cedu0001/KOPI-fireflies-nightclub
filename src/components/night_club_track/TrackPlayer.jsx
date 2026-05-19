@@ -49,20 +49,20 @@ const TrackPlayer = ({
 					</p>
 
 					<div className="flex gap-5 items-center">
-						<button onClick={prevTrack}>
+						<button onClick={prevTrack} className="cursor-pointer">
 							<FaFastBackward size={25} />
 						</button>
 
-						<button onClick={() => setIsPlaying(!isPlaying)}>
+						<button onClick={() => setIsPlaying(!isPlaying)} className="cursor-pointer">
 							{isPlaying ? <FaPause size={52} /> : <FaRegPlayCircle size={52} />}
 						</button>
 
-						<button onClick={nextTrack}>
+						<button onClick={nextTrack} className="cursor-pointer">
 							<FaFastForward size={25} />
 						</button>
 						<button
 							onClick={() => setShuffle(!shuffle)}
-							className={`transition ${shuffle ? "text-pink-500 scale-110" : "text-white"}`}
+							className={`transition cursor-pointer ${shuffle ? "text-(--highlight-secondary) scale-110" : "text-white"}`}
 						>
 							<FaShuffle size={25} />
 						</button>

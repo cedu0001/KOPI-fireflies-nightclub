@@ -58,24 +58,42 @@ const NightClubTrack = () => {
 		}
 	}, [isPlaying]);
 
-	/* når sangen ændrer sig: reset til start*/
+	/* når track ændres */
 	useEffect(() => {
-		if (!audioRef.current) return;
+		const audio = audioRef.current;
 
-		audioRef.current.currentTime = 0;
+		if (!audio) return;
+
+		/* reset state */
+		setCurrentTime(0);
+		setDuration(0);
+
+		/* load ny sang */
+		audio.load();
+
+		/* start fra begyndelsen */
+		audio.currentTime = 0;
 
 		if (isPlaying) {
-			audioRef.current.play().catch(() => {});
+			audio.play().catch(() => {});
 		}
 	}, [currentTrackIndex]);
 
 	/* tid og længde */
 	useEffect(() => {
 		const audio = audioRef.current;
+
 		if (!audio) return;
 
-		const updateTime = () => setCurrentTime(audio.currentTime);
-		const updateDuration = () => setDuration(audio.duration);
+		const updateTime = () => {
+			setCurrentTime(audio.currentTime);
+		};
+
+		const updateDuration = () => {
+			if (!isNaN(audio.duration)) {
+				setDuration(audio.duration);
+			}
+		};
 
 		audio.addEventListener("timeupdate", updateTime);
 		audio.addEventListener("loadedmetadata", updateDuration);
@@ -84,7 +102,7 @@ const NightClubTrack = () => {
 			audio.removeEventListener("timeupdate", updateTime);
 			audio.removeEventListener("loadedmetadata", updateDuration);
 		};
-	}, []);
+	}, [currentTrackIndex]);
 
 	/* lyd */
 	useEffect(() => {
@@ -115,9 +133,13 @@ const NightClubTrack = () => {
 
 	/* progress baren */
 	const handleProgressChange = (e) => {
+		const audio = audioRef.current;
+
+		if (!audio) return;
+
 		const value = Number(e.target.value);
 
-		audioRef.current.currentTime = value;
+		audio.currentTime = value;
 		setCurrentTime(value);
 	};
 
@@ -137,7 +159,7 @@ const NightClubTrack = () => {
 		<section className="flex flex-col items-center justify-center">
 			<Headline title="NIGHT CLUB TRACK" />
 
-			<audio key={currentTrack.id} ref={audioRef} src={currentTrack.audio} onEnded={nextTrack} />
+			<audio ref={audioRef} src={currentTrack.audio} onEnded={nextTrack} />
 
 			<TrackPlayer
 				currentTrack={currentTrack}
