@@ -1,30 +1,58 @@
 import Banner from "@/components/Banner";
-import TableBookingForm from "@/components/TableBookingForm";
+import BookingClient from "@/components/TableBookingClient";
 
 export default async function BookingPage({
   searchParams,
 }) {
-const resolvedSearchParams =
+
+  const resolvedSearchParams =
     await searchParams;
 
-  const response = await fetch(
+  const eventsResponse = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/events`,
     {
       cache: "no-store",
     }
   );
 
-  const events = await response.json();
+  const events =
+    await eventsResponse.json();
 
-  const selectedEvent =
-    resolvedSearchParams.event;
+  const tablesResponse = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/tables`,
+    {
+      cache: "no-store",
+    }
+  );
 
-    return ( 
-        <main>
-            <Banner title="BOOK TABLE"/>
-            <TableBookingForm
-            events={events}
-        selectedEvent={selectedEvent}/>
-        </main>
-     );
+  const tables =
+    await tablesResponse.json();
+
+  const reservationsResponse =
+    await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/reservations`,
+      {
+        cache: "no-store",
+      }
+    );
+
+  const reservations =
+    await reservationsResponse.json();
+
+  return (
+    <main>
+
+      <Banner title="BOOK TABLE" />
+
+      <BookingClient
+        tables={tables}
+        reservations={reservations}
+        events={events}
+        selectedEvent={
+          resolvedSearchParams.event
+        }
+      />
+
+    </main>
+  );
 }

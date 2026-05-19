@@ -1,10 +1,9 @@
+"use client"
+
 import Form from "next/form";
 import { InputBasic } from "./ui/input";
 import { Button } from "./ui/button";
-const TableBookingForm = ({
-  events,
-  selectedEvent,
-}) => {
+const TableBookingForm = ({events, selectedEvent, setSelectedEvent, selectedTable, setSelectedTable}) => {
     return ( 
         <Form className="mb-16">
             <h2>BOOK A TABLE</h2>
@@ -13,14 +12,32 @@ const TableBookingForm = ({
             className="max-w-148 min-w-48"/>
             <InputBasic type="email" placeholder="Your Email"
             className="max-w-148 min-w-48"/>
-            <InputBasic type="number" placeholder="Table Number"
-            className="max-w-148 min-w-48"/>
+            <select
+            name="table"
+            value={selectedTable}
+            onChange={(e) => setSelectedTable(e.target.value)}
+             className="w-full border border-input bg-transparent px-2.5 py-4 max-w-148 min-w-48 text-text">
+            <option value="">
+            Select Table
+            </option>
+  {Array.from({ length: 15 }).map(
+    (_, index) => (
+      <option
+        key={index + 1}
+        value={index + 1}
+      >
+        Table {index + 1}
+      </option>
+    )
+  )}
+</select>
             <InputBasic type="number" placeholder="Number Of Guests"
             className="max-w-148 min-w-48"/>
             <select
-          name="eventId"
-          defaultValue={selectedEvent || ""}
-          className="
+            name="eventId"
+            value={selectedEvent}
+            onChange={(e) => setSelectedEvent(e.target.value)}
+            className="
             w-full border border-input
             bg-transparent px-2.5 py-4
             max-w-148 min-w-48 mb-4
