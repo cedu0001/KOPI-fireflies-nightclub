@@ -8,6 +8,7 @@ import HeroIndex from "@/components/HeroIndex";
 
 import { getTestimonialsData } from "@/components/testimonials/TestimonialsData";
 import LatestVideo from "@/components/latest_video/LatestVideo";
+import NightClubTrack from "@/components/night_club_track/NightClubTrack";
 
 export default async function Home() {
 	const data = await getTestimonialsData();
@@ -41,6 +42,7 @@ export default async function Home() {
 			<h3 className="full-left">
 				Tester venstre side, jeg håber du også virker! Men det for jeg jo heldigvis at se lige om lidt hihi
 			</h3>
+			<NightClubTrack></NightClubTrack>
 			<LatestVideo></LatestVideo>
 			<Testimonials data={data} />
 			<MobileBlog></MobileBlog>

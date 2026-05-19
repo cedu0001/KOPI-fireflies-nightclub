@@ -135,3 +135,19 @@ p.text-style {
 	background: linear-gradient(-45deg, var(--highlight-primary) 0 50%, transparent 50% 100%);
 	z-index: 10;
 }
+
+/* Night Club Track */
+
+.corner-triangles {
+	position: absolute;
+	inset: 0;
+	z-index: 30;
+	pointer-events: none;
+
+	background:
+		linear-gradient(135deg, var(--highlight-primary) 0 32px, transparent 32px) top left,
+		linear-gradient(-45deg, var(--highlight-primary) 0 32px, transparent 32px) bottom right;
+
+	background-size: 64px 64px;
+	background-repeat: no-repeat;
+}
