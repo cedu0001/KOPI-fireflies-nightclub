@@ -115,7 +115,13 @@ body {
 	max-width: 1600px;
 	margin: 0 auto;
 	padding-inline: 1rem;
+
+
 }
+input, textarea, select, option {
+  font-family: var(--font-ubuntu) !important;
+}
+
 h1,
 h2,
 h3,

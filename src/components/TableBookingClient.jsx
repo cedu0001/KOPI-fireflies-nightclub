@@ -35,6 +35,7 @@ const BookingClient = ({
         setSelectedEvent={setActiveEvent}
         selectedTable={selectedTable}
         setSelectedTable={setSelectedTable}
+        reservations={reservations}
       />
 
     </>

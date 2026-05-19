@@ -3,7 +3,16 @@
 import Form from "next/form";
 import { InputBasic } from "./ui/input";
 import { Button } from "./ui/button";
-const TableBookingForm = ({events, selectedEvent, setSelectedEvent, selectedTable, setSelectedTable}) => {
+const TableBookingForm = ({events, selectedEvent, setSelectedEvent, selectedTable, setSelectedTable, reservations}) => {
+    const isReserved = (tableNumber) => {
+        if(!selectedEvent) return false;
+  return reservations.some(
+    (reservation) =>
+    Number(reservation.eventId) ===
+    Number(selectedEvent) &&
+    Number(reservation.table) === tableNumber
+  );
+};
     return ( 
         <Form className="mb-16">
             <h2>BOOK A TABLE</h2>
@@ -15,20 +24,27 @@ const TableBookingForm = ({events, selectedEvent, setSelectedEvent, selectedTabl
             <select
             name="table"
             value={selectedTable}
-            onChange={(e) => setSelectedTable(e.target.value)}
+            onChange={(e) => setSelectedTable(Number(e.target.value))}
              className="w-full border border-input bg-transparent px-2.5 py-4 max-w-148 min-w-48 text-text">
             <option value="">
             Select Table
             </option>
   {Array.from({ length: 15 }).map(
-    (_, index) => (
+    (_, index) => {
+        const tableNumber = index + 1;
+      return (
       <option
-        key={index + 1}
-        value={index + 1}
+        key={tableNumber}
+        value={tableNumber}
+        disabled={isReserved(tableNumber)}
       >
-        Table {index + 1}
+        Table {tableNumber}
+        {isReserved(tableNumber)
+          ? " (Reserved)"
+          : ""}
       </option>
-    )
+      );
+    }
   )}
 </select>
             <InputBasic type="number" placeholder="Number Of Guests"
