@@ -5,6 +5,7 @@ import Newsletter from "@/components/Newsletter";
 import Testimonials from "@/components/testimonials/Testimonials";
 import MobileBlog from "@/components/MobileBlog";
 import HeroIndex from "@/components/HeroIndex";
+import FeaturedEvents from "@/components/FeaturedEvents";
 
 import { getTestimonialsData } from "@/components/testimonials/TestimonialsData";
 import LatestVideo from "@/components/latest_video/LatestVideo";
@@ -15,6 +16,7 @@ export default async function Home() {
 	return (
 		<main>
 			<HeroIndex />
+			<FeaturedEvents />
 			<h1 className="text-5xl font-bold">Welcome to Fireflies Nightclub</h1>
 			<TesterList />
 			<p className="mt-4 text-lg text-gray-600 dark:text-gray-300">Experience the best nightlife in town with us!</p>
