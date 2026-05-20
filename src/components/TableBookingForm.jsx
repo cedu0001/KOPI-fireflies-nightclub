@@ -1,10 +1,18 @@
 "use client"
 
-import Form from "next/form";
+import bookingPost from "./bookingPost";
+import { useActionState } from "react";
 import { InputBasic } from "./ui/input";
 import { Button } from "./ui/button";
 import { SelectTrigger, SelectContent, SelectItem, SelectValue, Select } from "./ui/select";
 const TableBookingForm = ({events, selectedEvent, setSelectedEvent, selectedTable, setSelectedTable, reservations}) => {
+
+const [state, formAction, isPending] =
+    useActionState(bookingPost, {
+      success: false,
+      message: "",
+    });
+
     const isReserved = (tableNumber) => {
         if(!selectedEvent) return false;
   return reservations.some(
@@ -14,6 +22,7 @@ const TableBookingForm = ({events, selectedEvent, setSelectedEvent, selectedTabl
     Number(reservation.table) === tableNumber
   );
 };
+
 const selectedEventTitle =
   events.find(
     (event) =>
@@ -27,19 +36,34 @@ const selectedEventTitle =
     : "";
 
     return ( 
-        <Form className="mb-16">
+        <form className="mb-16" action={formAction}>
             <h2>BOOK A TABLE</h2>
+            {state?.message && (
+        <div
+          className={`border p-4 ${
+            state.success
+              ? ""
+              : "border-red-500 text-red-500"
+          }`}
+        >
+          {state.message}
+        </div>
+      )}
             <section className="flex flex-wrap gap-4">
-            <InputBasic type="text" placeholder="Your Full Name"
+            <InputBasic
+            name="name"
+            type="text" placeholder="Your Full Name"
             className="max-w-148 min-w-48"/>
-            <InputBasic type="email" placeholder="Your Email"
+            <InputBasic
+            name="email"
+            type="email" placeholder="Your Email"
             className="max-w-148 min-w-48"/>
 
             <Select
-            name="table"
-            value={selectedTable}
-            onValueChange={(value) => setSelectedTable(Number(value))}
-             className="w-full border border-input bg-transparent max-w-148 min-w-48 text-text">
+            value={String(selectedTable)}
+            onValueChange={(value) =>
+            setSelectedTable(Number(value))}
+            className="w-full border border-input bg-transparent max-w-148 min-w-48 text-text">
             <SelectTrigger
             className="w-full  max-w-148 min-w-48">
             <SelectValue>
@@ -53,7 +77,7 @@ const selectedEventTitle =
       return (
       <SelectItem
         key={tableNumber}
-        value={tableNumber}
+        value={String(tableNumber)}
         disabled={isReserved(tableNumber)}
       >
         Table {tableNumber}
@@ -66,11 +90,16 @@ const selectedEventTitle =
   )}
   </SelectContent>
 </Select>
-            <InputBasic type="number" placeholder="Number Of Guests"
+<input
+type="hidden"
+name="table"
+value={selectedTable || ""}/>
+            <InputBasic
+            name="guests"
+            type="number" placeholder="Number Of Guests"
             className="max-w-148 min-w-48"/>
           
             <Select
-            name="eventId"
             value={String(selectedEvent)} 
             onValueChange={(value) => setSelectedEvent(value)}
             className="
@@ -95,20 +124,29 @@ const selectedEventTitle =
           ))}
           </SelectContent>
         </Select>
-            <InputBasic type="tel" placeholder="Your Telephone Number"
+        <input
+        type="hidden"
+        name="eventId"
+        value={selectedEvent || ""}/>
+            <InputBasic
+            name="phone"
+            type="tel" placeholder="Your Telephone Number"
             className="max-w-148 min-w-48"/>
             </section>
             <textarea
+            name="content"
         placeholder="Your comment"
         type="text"
         className="h-40 border w-full outline-none px-2.5 pt-2.5 mb-8"
       />
       <div className="flex justify-end">
         <Button variant="secondary" type="submit">
-        RESERVE
+        {isPending
+            ? "Reserving..."
+            : "RESERVE"}
         </Button>
       </div>
-        </Form>
+        </form>
      );
 }
  
