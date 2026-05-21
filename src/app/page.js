@@ -7,13 +7,13 @@ import MobileBlog from "@/components/MobileBlog";
 import HeroIndex from "@/components/HeroIndex";
 import FeaturedEvents from "@/components/FeaturedEvents";
 
-import { getTestimonialsData } from "@/components/testimonials/TestimonialsData";
 import LatestVideo from "@/components/latest_video/LatestVideo";
 import NightClubTrack from "@/components/night_club_track/NightClubTrack";
 import WelcomeIndex from "@/components/WelcomeIndex";
 
+import { Suspense } from "react";
+
 export default async function Home() {
-	const data = await getTestimonialsData();
 	return (
 		<main>
 			<HeroIndex />
@@ -48,7 +48,9 @@ export default async function Home() {
 			</h3>
 			<NightClubTrack></NightClubTrack>
 			<LatestVideo></LatestVideo>
-			<Testimonials data={data} />
+			<Suspense fallback={<p>Loading testimonials...</p>}>
+				<Testimonials />
+			</Suspense>
 			<MobileBlog></MobileBlog>
 			<Newsletter></Newsletter>
 		</main>
