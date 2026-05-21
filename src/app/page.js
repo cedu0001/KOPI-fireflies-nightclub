@@ -10,12 +10,14 @@ import FeaturedEvents from "@/components/FeaturedEvents";
 import { getTestimonialsData } from "@/components/testimonials/TestimonialsData";
 import LatestVideo from "@/components/latest_video/LatestVideo";
 import NightClubTrack from "@/components/night_club_track/NightClubTrack";
+import WelcomeIndex from "@/components/WelcomeIndex";
 
 export default async function Home() {
 	const data = await getTestimonialsData();
 	return (
 		<main>
 			<HeroIndex />
+			<WelcomeIndex />
 			<FeaturedEvents />
 			<h1 className="text-5xl font-bold">Welcome to Fireflies Nightclub</h1>
 			<TesterList />
