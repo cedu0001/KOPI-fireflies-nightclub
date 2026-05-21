@@ -72,7 +72,7 @@ const FeaturedEventsClient = ({ events }) => {
 				{groupedEvents.map((_, index) => (
 					<button key={index} onClick={() => setActiveIndex(index)} className="focus:outline-none">
 						<div
-							className={`w-[20px] h-[20px] transition-colors duration-300 ${
+							className={`w-[20px] h-[20px] transition-colors duration-300 cursor-pointer ${
 								activeIndex === index ? "bg-(--highlight-secondary)" : "bg-white"
 							}`}
 						/>

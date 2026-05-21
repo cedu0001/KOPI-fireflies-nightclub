@@ -151,3 +151,13 @@ p.text-style {
 	background-size: 64px 64px;
 	background-repeat: no-repeat;
 }
+
+/* Welcome In NightClub */
+
+.clip-triangle-tl {
+	clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.clip-triangle-br {
+	clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
