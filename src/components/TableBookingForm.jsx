@@ -5,12 +5,13 @@ import { useActionState } from "react";
 import { InputBasic } from "./ui/input";
 import { Button } from "./ui/button";
 import { SelectTrigger, SelectContent, SelectItem, SelectValue, Select } from "./ui/select";
-const TableBookingForm = ({events, selectedEvent, setSelectedEvent, selectedTable, setSelectedTable, reservations}) => {
+const TableBookingForm = ({events, selectedEvent, setSelectedEvent, selectedTable, setSelectedTable, reservations, tables}) => {
 
 const [state, formAction, isPending] =
     useActionState(bookingPost, {
       success: false,
       message: "",
+      values: {},
     });
 
     const isReserved = (tableNumber) => {
@@ -36,7 +37,7 @@ const selectedEventTitle =
     : "";
 
     return ( 
-        <form className="mb-16" action={formAction}>
+        <form className="mb-16" action={formAction} key={state.message}>
             <h2>BOOK A TABLE</h2>
             {state?.message && (
         <div
@@ -53,10 +54,12 @@ const selectedEventTitle =
             <InputBasic
             name="name"
             type="text" placeholder="Your Full Name"
+            defaultValue={state.values?.name}
             className="max-w-148 min-w-48"/>
             <InputBasic
             name="email"
             type="email" placeholder="Your Email"
+            defaultValue={state.values?.email}
             className="max-w-148 min-w-48"/>
 
             <Select
@@ -97,6 +100,13 @@ value={selectedTable || ""}/>
             <InputBasic
             name="guests"
             type="number" placeholder="Number Of Guests"
+            min={1}
+            max={8}
+            onChange={(e) => {
+            if (e.target.value > 8) {
+            e.target.value = 8;}
+            }}
+           defaultValue={state.values?.guests}
             className="max-w-148 min-w-48"/>
           
             <Select
@@ -131,12 +141,14 @@ value={selectedTable || ""}/>
             <InputBasic
             name="phone"
             type="tel" placeholder="Your Telephone Number"
+            defaultValue={state.values?.phone}
             className="max-w-148 min-w-48"/>
             </section>
             <textarea
             name="content"
         placeholder="Your comment"
         type="text"
+        defaultValue={state.values?.content}
         className="h-40 border w-full outline-none px-2.5 pt-2.5 mb-8"
       />
       <div className="flex justify-end">

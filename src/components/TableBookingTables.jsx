@@ -48,7 +48,7 @@ const Tables = ({tables, reservations, selectedEvent, selectedTable, setSelected
   };
     return ( 
         <article
-      className="grid grid-cols-[repeat(5,minmax(75px,240px))] justify-center mb-16 ">
+      className="grid grid-cols-[repeat(5,minmax(75px,240px))] justify-center mb-16 mt-8">
 
       {tables.map((table) => {
 

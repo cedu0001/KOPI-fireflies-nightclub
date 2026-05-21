@@ -8,30 +8,25 @@ export default async function commentPost(
     formData.get("eventId")
   );
 
-  const name = formData.get("name");
-  const content = formData.get("content");
-  const email = formData.get("email");
-  const table = formData.get("table");
-  const guests = formData.get ("guests");
-  const phone = formData.get ("phone");
+  const values = {
+    eventId: formData.get("eventId"),
+    name: formData.get("name"),
+    content: formData.get("content"),
+    email: formData.get("email"),
+    table: formData.get("table"),
+    guests: formData.get("guests"),
+    phone: formData.get("phone"),
+  };
 
-  if (!eventId || !name || !table || !email || !guests || !phone) {
+  if (!eventId || !values.name || !values.table || !values.email || !values.guests || !values.phone) {
     return {
       success: false,
       message: "Please fill out all fields.",
+      values,
     };
   }
 
   try {
-    console.log({
-  eventId,
-  name,
-  table,
-  guests,
-  phone,
-  email,
-  content,
-});
 
     const selectedEventData = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/events/${eventId}`);
@@ -47,23 +42,21 @@ export default async function commentPost(
             "application/json",
         },
         body: JSON.stringify({
-          eventId,
-          name,
-          table,
-          guests,
-          phone,
-          email,
-          content,
-          date: event.date
+        eventId,
+        name: values.name,
+        table: values.table,
+        guests: values.guests,
+        phone: values.phone,
+        email: values.email,
+        content: values.content,
+        date: event.date,
         }),
       }
     );
 
     if (!response.ok) {
-        const errorText =
-    await response.text();
-
-  console.log(errorText);
+      const errorText = await response.text();
+      console.log(errorText);
 
       throw new Error(
         "Failed to reserve"
@@ -73,6 +66,15 @@ export default async function commentPost(
     return {
       success: true,
       message: "Table is reserved",
+      values: {
+        name: "",
+        email: "",
+        table: "",
+        guests: "",
+        eventId: "",
+        phone: "",
+        content: "",
+      },
     };
   } catch (error) {
     console.error(error);

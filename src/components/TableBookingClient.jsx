@@ -19,7 +19,7 @@ const BookingClient = ({
     useState("");
 
   return (
-    <>
+    <article>
 
       <Tables
         tables={tables}
@@ -36,9 +36,10 @@ const BookingClient = ({
         selectedTable={selectedTable}
         setSelectedTable={setSelectedTable}
         reservations={reservations}
+        tables={tables}
       />
 
-    </>
+    </article>
   );
 };
 
