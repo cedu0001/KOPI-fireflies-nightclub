@@ -2,7 +2,6 @@ import { Ubuntu } from "next/font/google";
 import "./globals.css";
 
 import Footer from "@/components/Footer";
-import GlobalNav from "@/components/globalnavigation/GlobalNav";
 
 const ubuntu = Ubuntu({
 	variable: "--font-ubuntu",
@@ -19,7 +18,6 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en" className={`${ubuntu.variable} h-full antialiased text-foreground`}>
 			<body className="min-h-full">
-				<GlobalNav />
 				{children}
 				<Footer />
 			</body>

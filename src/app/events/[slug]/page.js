@@ -2,6 +2,7 @@ import SingleEvent from "@/components/events/single-event"
 import CommentForm from "@/components/comments/CommentForm";
 import EventComments from "@/components/comments/EventComments";
 import Banner from "@/components/Banner";
+import GlobalNav from "@/components/globalnavigation/GlobalNav";
 
 export default async function SingleEventSite ({ params,}) {
 const { slug } = await params;
@@ -35,6 +36,7 @@ const response = await fetch(
 
     return ( 
         <main>
+            <GlobalNav/>
             <Banner title={event.title}/>
             <SingleEvent event={event}/>
             <EventComments comments={comments}/>

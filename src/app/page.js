@@ -1,3 +1,4 @@
+import GlobalNav from "@/components/globalnavigation/GlobalNav";
 import Newsletter from "@/components/newsletter/Newsletter";
 import Testimonials from "@/components/testimonials/Testimonials";
 import MobileBlog from "@/components/MobileBlog";
@@ -13,6 +14,7 @@ export default async function Home() {
 	return (
 		<main>
 			<HeroIndex />
+			<GlobalNav/>
 			<WelcomeIndex />
 			<FeaturedEvents />
 			<Gallery />
