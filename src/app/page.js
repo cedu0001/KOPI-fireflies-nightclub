@@ -20,14 +20,14 @@ export default async function Home() {
 			<HeroIndex />
 			<WelcomeIndex />
 			<FeaturedEvents />
-			<Gallery/>
+			<Gallery />
 			<NightClubTrack />
-			<LatestVideo/>
+			<LatestVideo />
 			<Suspense fallback={<p>Loading testimonials...</p>}>
 				<Testimonials />
 			</Suspense>
-			<MobileBlog/>
-			<Newsletter/>
+			<MobileBlog />
+			<Newsletter />
 		</main>
 	);
 }

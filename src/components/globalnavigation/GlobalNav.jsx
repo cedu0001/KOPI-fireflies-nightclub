@@ -63,12 +63,12 @@ const GlobalNav = () => {
 				<ul
 					popover="auto"
 					id="mobile-menu"
-					className=" h-dvh w-dvw hidden md:hidden [&:popover-open]:flex flex-col gap-4 bg-black text-white border p-6 text-center justify-center [&:popover-open]:md:hidden "
+					className=" h-dvh w-dvw hidden md:hidden [&:popover-open]:flex flex-col gap-4 bg-black [&:popover-open]:bg-opacity-60 text-white border p-6 text-center justify-center [&:popover-open]:md:hidden "
 				>
 					<button
 						popoverTarget="mobile-menu"
 						onClick={() => setIsOpen(!isOpen)}
-						className="absolute top-0 right-2 md:hidden z-1000 text-white text-3xl"
+						className="absolute top-0 right-2 p-5 md:hidden z-1000 text-white text-3xl"
 					>
 						{isOpen ? "✕" : "☰"}
 					</button>
