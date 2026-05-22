@@ -13,7 +13,7 @@ const ContactForm = () => {
   return (
     <form
     action={formAction}
-    className="max-w-[700px] mr-auto ml-auto">
+    className="max-w-[700px] mr-auto ml-auto my-16">
 
        {state?.message && (
         <div
