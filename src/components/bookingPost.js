@@ -55,8 +55,9 @@ export default async function commentPost(
     );
 
     if (!response.ok) {
+      /* --AI HJÆLP TIL AT DEBUGGE----
       const errorText = await response.text();
-      console.log(errorText);
+      console.log(errorText); */
 
       throw new Error(
         "Failed to reserve"
