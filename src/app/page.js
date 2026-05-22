@@ -12,8 +12,6 @@ import NightClubTrack from "@/components/night_club_track/NightClubTrack";
 import WelcomeIndex from "@/components/WelcomeIndex";
 import Gallery from "@/components/GalleryMap";
 
-import { Suspense } from "react";
-
 export default async function Home() {
 	return (
 		<main>
@@ -23,9 +21,7 @@ export default async function Home() {
 			<Gallery />
 			<NightClubTrack />
 			<LatestVideo />
-			<Suspense fallback={<p>Loading testimonials...</p>}>
-				<Testimonials />
-			</Suspense>
+			<Testimonials />
 			<MobileBlog />
 			<Newsletter />
 		</main>

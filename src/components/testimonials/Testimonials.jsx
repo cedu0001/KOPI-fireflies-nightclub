@@ -1,6 +1,9 @@
+import { cacheLife } from "next/cache";
 import TestimonialsClient from "./TestimonialsClient";
 
 const Testimonials = async () => {
+	"use cache";
+	cacheLife("hours");
 	try {
 		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/testimonials`);
 
