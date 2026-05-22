@@ -1,6 +1,6 @@
-import SingleEvent from "@/components/single-event"
-import CommentForm from "@/components/CommentForm";
-import EventComments from "@/components/EventComments";
+import SingleEvent from "@/components/events/single-event"
+import CommentForm from "@/components/comments/CommentForm";
+import EventComments from "@/components/comments/EventComments";
 import Banner from "@/components/Banner";
 
 export default async function SingleEventSite ({ params,}) {

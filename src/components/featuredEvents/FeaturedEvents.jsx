@@ -1,5 +1,5 @@
 import FeaturedEventsClient from "./FeaturedEventsClient";
-import Headline from "./Headline";
+import Headline from "../Headline";
 import { cacheLife } from "next/cache";
 
 const FeaturedEvents = async () => {

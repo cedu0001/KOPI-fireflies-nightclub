@@ -1,9 +1,9 @@
 "use client";
 import Form from "next/form";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { useActionState } from "react";
 
-import newsletterPost from "@/components/newsletterPost";
+import newsletterPost from "@/components/newsletter/newsletterPost";
 
 const Newsletter = () => {
 	const [state, formAction, isPending] = useActionState(newsletterPost, {

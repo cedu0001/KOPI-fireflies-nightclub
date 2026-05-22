@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import EventCard from "./EventCard";
+import EventCard from "@/components/events/EventCard";
 
 import {
   Pagination,

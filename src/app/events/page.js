@@ -1,5 +1,5 @@
 import Banner from "@/components/Banner";
-import EventMap from "@/components/EventMap";
+import EventMap from "@/components/events/EventMap";
 import { Suspense } from "react";
 
 const EventPage = () => {

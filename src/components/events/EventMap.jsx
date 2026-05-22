@@ -1,4 +1,4 @@
-import EventPagination from "./EventPagination";
+import EventPagination from "@/components/events/EventPagination";
 
 const EventMap = async () => {
   const response = await fetch(

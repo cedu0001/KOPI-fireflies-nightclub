@@ -9,9 +9,9 @@ import Image from "next/image";
 import {
   Dialog,
   DialogContent,
-} from "./ui/dialog";
+} from "@/components/ui/dialog";
 
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 import { BiSolidRightArrow } from "react-icons/bi";
 import { BiSolidLeftArrow } from "react-icons/bi";

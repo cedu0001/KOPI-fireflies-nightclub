@@ -43,9 +43,9 @@ const GlobalNav = () => {
 					/>
 
 					<GlobalNavBtn
-						href="/contact"
+						href="/contact-us"
 						label="CONTACT US"
-						active={pathname === "/contact"}
+						active={pathname === "/contact-us"}
 						hovered={hoveredPath === "CONTACT US"}
 						onHover={() => setHoveredPath("CONTACT US")}
 					/>
@@ -77,15 +77,15 @@ const GlobalNav = () => {
 					</li>
 
 					<li>
-						<Link href="/">EVENTS</Link>
+						<Link href="/events">EVENTS</Link>
 					</li>
 
 					<li>
-						<Link href="/">BOOK TABLE</Link>
+						<Link href="/book-table">BOOK TABLE</Link>
 					</li>
 
 					<li>
-						<Link href="/">CONTACT US</Link>
+						<Link href="/contact-us">CONTACT US</Link>
 					</li>
 				</ul>
 			</div>

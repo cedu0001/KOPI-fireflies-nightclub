@@ -2,9 +2,9 @@
 
 import bookingPost from "./bookingPost";
 import { useActionState } from "react";
-import { InputBasic } from "./ui/input";
-import { Button } from "./ui/button";
-import { SelectTrigger, SelectContent, SelectItem, SelectValue, Select } from "./ui/select";
+import { InputBasic } from "../ui/input";
+import { Button } from "../ui/button";
+import { SelectTrigger, SelectContent, SelectItem, SelectValue, Select } from "../ui/select";
 const TableBookingForm = ({events, selectedEvent, setSelectedEvent, selectedTable, setSelectedTable, reservations, tables}) => {
 
 const [state, formAction, isPending] =

@@ -1,5 +1,5 @@
 import GalleryClient from "./GalleryClient";
-import Headline from "./Headline";
+import Headline from "@/components/Headline";
 import { cacheLife } from "next/cache";
 
 const GalleryMap = async () => {
@@ -19,7 +19,7 @@ const GalleryMap = async () => {
   }));
 
   return (
-    <article className="full-width">
+    <article className="full-width mt-22">
       <Headline title="GALLERY" />
 
       <GalleryClient galleryData={formattedData} />

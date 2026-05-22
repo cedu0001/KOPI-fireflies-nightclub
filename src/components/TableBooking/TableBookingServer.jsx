@@ -1,4 +1,4 @@
-import BookingClient from "@/components/TableBookingClient";
+import BookingClient from "@/components/TableBooking/TableBookingClient";
 
 export default async function BookingSystem({searchParams,}) {
 const resolvedSearchParams =

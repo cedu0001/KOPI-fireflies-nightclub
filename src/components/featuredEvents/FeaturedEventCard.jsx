@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import "@/app/gallery.css";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 import { motion } from "framer-motion";
 

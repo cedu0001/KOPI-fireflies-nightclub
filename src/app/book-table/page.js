@@ -1,7 +1,7 @@
 import Banner from "@/components/Banner";
-import BookingSystem from "@/components/TableBookingServer";
+import BookingSystem from "@/components/TableBooking/TableBookingServer";
 import { Suspense } from "react";
-import TableStatus from "@/components/TableBookingAvailability";
+import TableStatus from "@/components/TableBooking/TableBookingAvailability";
 
 export default async function BookingPage({searchParams,}){
 

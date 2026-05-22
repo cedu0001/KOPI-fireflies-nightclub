@@ -1,34 +1,21 @@
-"use client";
-
+"use client"
 import { useActionState } from "react";
-
-import commentPost from "./commentPost";
-
-import { Button } from "@/components/ui/button";
+import contactPost from "@/components/contact/contactPost"
 import { InputBasic } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
-const CommentForm = ({ eventId }) => {
-
+const ContactForm = () => {
   const [state, formAction, isPending] =
-    useActionState(commentPost, {
+    useActionState(contactPost, {
       success: false,
       message: "",
     });
-
   return (
     <form
-      action={formAction}
-      className="mt-12 flex flex-col gap-4"
-    >
-        <h2>LEAVE A COMMENT</h2>
+    action={formAction}
+    className="max-w-[700px] mr-auto ml-auto my-16">
 
-      <input
-        type="hidden"
-        name="eventId"
-        value={eventId}
-      />
-
-      {state?.message && (
+       {state?.message && (
         <div
           className={`border p-4 ${
             state.success
@@ -39,7 +26,7 @@ const CommentForm = ({ eventId }) => {
           {state.message}
         </div>
       )}
-        <div className="flex gap-4">
+
       <InputBasic
         name="name"
         placeholder="Your name"
@@ -47,29 +34,26 @@ const CommentForm = ({ eventId }) => {
       />
       <InputBasic
         name="email"
-        placeholder="Your Email"
+        placeholder="Your email"
         type="email"
       />
-      </div>
-
       <textarea
         name="content"
         placeholder="Your comment"
-        className="min-h-32 border p-4 outline-none"
+        type="text"
+        className="h-40 border w-full outline-none px-2.5"
       />
-
       <div className="flex justify-end">
         <Button
           variant="secondary"
+          className="mt-8"
           type="submit"
         >
-          {isPending
-            ? "Posting..."
-            : "POST COMMENT"}
+          {isPending ? "Sending..." : "SEND"}
         </Button>
       </div>
     </form>
   );
 };
 
-export default CommentForm;
+export default ContactForm;

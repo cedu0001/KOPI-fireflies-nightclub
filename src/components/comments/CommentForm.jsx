@@ -1,21 +1,34 @@
-"use client"
-import { useActionState } from "react";
-import contactPost from "@/components/contactPost"
-import { InputBasic } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+"use client";
 
-const ContactForm = () => {
+import { useActionState } from "react";
+
+import commentPost from "@/components/comments/CommentForm";
+
+import { Button } from "@/components/ui/button";
+import { InputBasic } from "@/components/ui/input";
+
+const CommentForm = ({ eventId }) => {
+
   const [state, formAction, isPending] =
-    useActionState(contactPost, {
+    useActionState(commentPost, {
       success: false,
       message: "",
     });
+
   return (
     <form
-    action={formAction}
-    className="max-w-[700px] mr-auto ml-auto my-16">
+      action={formAction}
+      className="mt-12 flex flex-col gap-4"
+    >
+        <h2>LEAVE A COMMENT</h2>
 
-       {state?.message && (
+      <input
+        type="hidden"
+        name="eventId"
+        value={eventId}
+      />
+
+      {state?.message && (
         <div
           className={`border p-4 ${
             state.success
@@ -26,7 +39,7 @@ const ContactForm = () => {
           {state.message}
         </div>
       )}
-
+        <div className="flex gap-4">
       <InputBasic
         name="name"
         placeholder="Your name"
@@ -34,26 +47,29 @@ const ContactForm = () => {
       />
       <InputBasic
         name="email"
-        placeholder="Your email"
+        placeholder="Your Email"
         type="email"
       />
+      </div>
+
       <textarea
         name="content"
         placeholder="Your comment"
-        type="text"
-        className="h-40 border w-full outline-none px-2.5"
+        className="min-h-32 border p-4 outline-none"
       />
+
       <div className="flex justify-end">
         <Button
           variant="secondary"
-          className="mt-8"
           type="submit"
         >
-          {isPending ? "Sending..." : "SEND"}
+          {isPending
+            ? "Posting..."
+            : "POST COMMENT"}
         </Button>
       </div>
     </form>
   );
 };
 
-export default ContactForm;
+export default CommentForm;
