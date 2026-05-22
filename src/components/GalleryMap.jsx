@@ -1,13 +1,13 @@
 import GalleryClient from "./GalleryClient";
 import Headline from "./Headline";
+import { cacheLife } from "next/cache";
 
 const GalleryMap = async () => {
+  "use cache";
+  cacheLife("hours");
 
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/gallery?_limit=6`,
-    {
-      cache: "no-store",
-    }
   );
 
   const data = await response.json();
