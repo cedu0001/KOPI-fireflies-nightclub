@@ -19,7 +19,7 @@ const GalleryMap = async () => {
   }));
 
   return (
-    <article className="full-width mt-22">
+    <article className="full-width my-22">
       <Headline title="GALLERY" />
 
       <GalleryClient galleryData={formattedData} />
