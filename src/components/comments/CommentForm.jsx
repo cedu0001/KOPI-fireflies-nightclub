@@ -55,7 +55,7 @@ const CommentForm = ({ eventId }) => {
       <textarea
         name="content"
         placeholder="Your comment"
-        className="min-h-32 border p-4 outline-none"
+        className="min-h-32 border p-4 focus:border-highlight-primary outline-none"
       />
 
       <div className="flex justify-end">

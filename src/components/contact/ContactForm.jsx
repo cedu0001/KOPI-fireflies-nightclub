@@ -41,7 +41,7 @@ const ContactForm = () => {
         name="content"
         placeholder="Your comment"
         type="text"
-        className="h-40 border w-full outline-none px-2.5"
+        className="h-40 border w-full focus:border-highlight-primary outline-none px-2.5"
       />
       <div className="flex justify-end">
         <Button
