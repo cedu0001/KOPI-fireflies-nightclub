@@ -11,16 +11,20 @@ const Newsletter = () => {
 		message: "",
 	});
 	return (
-		<section className="flex flex-col gap-3 items-center my-(--space-3xl)">
+		<section className="flex flex-col gap-(--space-xs) items-center my-(--space-3xl)">
 			<div className="text-center pb-(--space-xl)">
 				<h5 className="!py-0">WANT THE LATEST NIGHT CLUB NEWS?</h5>
 				<p className="!py-0">
 					Subscribe to our newsletter and never miss an <span className="text-(--highlight-secondary)">Event</span>
 				</p>
 			</div>
-			<Form action={formAction} className="flex flex-col sm:flex-row gap-10">
+			<Form action={formAction} className="flex flex-col sm:flex-row gap-(--space-xl)">
 				{state?.message && (
-					<div className={`border p-4 ${state.success ? "" : "border-red-500 text-red-500"}`}>{state.message}</div>
+					<div
+						className={`border p-(--space-s) ${state.success ? "" : "border-(--color-destructive) text-(--color-destructive)"}`}
+					>
+						{state.message}
+					</div>
 				)}
 				<input
 					name="email"

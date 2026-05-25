@@ -47,7 +47,6 @@ const NightClubTrack = () => {
 
 	const currentTrack = tracks[currentTrackIndex];
 
-	/* play/pause funktion */
 	useEffect(() => {
 		if (!audioRef.current) return;
 
@@ -58,20 +57,16 @@ const NightClubTrack = () => {
 		}
 	}, [isPlaying]);
 
-	/* når track ændres */
 	useEffect(() => {
 		const audio = audioRef.current;
 
 		if (!audio) return;
 
-		/* reset state */
 		setCurrentTime(0);
 		setDuration(0);
 
-		/* load ny sang */
 		audio.load();
 
-		/* start fra begyndelsen */
 		audio.currentTime = 0;
 
 		if (isPlaying) {
@@ -79,7 +74,6 @@ const NightClubTrack = () => {
 		}
 	}, [currentTrackIndex]);
 
-	/* tid og længde */
 	useEffect(() => {
 		const audio = audioRef.current;
 
@@ -104,13 +98,11 @@ const NightClubTrack = () => {
 		};
 	}, [currentTrackIndex]);
 
-	/* lyd */
 	useEffect(() => {
 		if (!audioRef.current) return;
 		audioRef.current.volume = volume;
 	}, [volume]);
 
-	/* næste track og shuffle */
 	const nextTrack = () => {
 		if (shuffle) {
 			let randomIndex;
@@ -126,12 +118,10 @@ const NightClubTrack = () => {
 		setCurrentTrackIndex((prev) => (prev + 1) % tracks.length);
 	};
 
-	/* tidligere track */
 	const prevTrack = () => {
 		setCurrentTrackIndex((prev) => (prev === 0 ? tracks.length - 1 : prev - 1));
 	};
 
-	/* progress baren */
 	const handleProgressChange = (e) => {
 		const audio = audioRef.current;
 
@@ -143,7 +133,6 @@ const NightClubTrack = () => {
 		setCurrentTime(value);
 	};
 
-	/* tiden */
 	const formatTime = (time) => {
 		if (!time) return "0:00";
 

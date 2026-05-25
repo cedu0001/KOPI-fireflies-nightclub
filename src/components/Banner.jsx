@@ -8,7 +8,7 @@ const Banner = ({ title }) => {
 					src="/assets/bg/footerbg.jpg"
 					width={1600}
 					height={270}
-					alt="hans in the air, like you don't care"
+					alt="Background for banner, shadows of people dancing"
 					className="object-cover max-h-35"
 				/>
 

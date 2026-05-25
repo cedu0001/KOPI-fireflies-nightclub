@@ -52,10 +52,10 @@ const WelcomeIndex = () => {
 	}, []);
 
 	return (
-		<section className="flex flex-col items-center justify-center my-10 py-10 gap-8">
+		<section className="flex flex-col items-center justify-center my-(--space-xl) py-(--space-xl) gap-(--space-l)">
 			<Headline title="WELCOME IN NIGHTCLUB" />
 
-			<div className="flex flex-row items-center justify-center gap-4 flex-wrap">
+			<div className="flex flex-row items-center justify-center gap-(--space-s) flex-wrap">
 				{images.map((img, index) => {
 					const Icon = img.icon;
 
@@ -93,7 +93,7 @@ const WelcomeIndex = () => {
 									hover: { opacity: 0.9 },
 								}}
 								transition={{ duration: 0.3 }}
-								className="absolute inset-0 bg-black border-t-2 border-b-2 border-(--highlight-secondary)"
+								className="absolute inset-0 bg-(--primary) border-t-2 border-b-2 border-(--highlight-secondary)"
 							/>
 
 							<motion.div className="hidden corner-triangles origin-center absolute inset-0 z-20" />
@@ -139,9 +139,9 @@ const WelcomeIndex = () => {
 								className="absolute bottom-0 right-0 w-16 h-16 bg-(--highlight-primary) clip-triangle-br z-20"
 							/>
 
-							<div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6">
+							<div className="absolute inset-0 flex flex-col items-center justify-center gap-(--space-s) px-(--space-m)">
 								<motion.div
-									className="object-contain text-5xl border-2 border-(--highlight-secondary) rounded-[5px] p-2"
+									className="object-contain text-5xl border-2 border-(--highlight-secondary) rounded-[5px] p-(--space-2xs)"
 									variants={{
 										rest: {
 											scale: 0.7,
@@ -185,7 +185,7 @@ const WelcomeIndex = () => {
 										duration: 0.6,
 										ease: "easeOut",
 									}}
-									className="text-white text-3xl font-bold tracking-widest text-center"
+									className="text-(--primary-foreground) text-3xl font-bold tracking-widest text-center"
 								>
 									{img.title}
 								</motion.h4>
@@ -206,7 +206,7 @@ const WelcomeIndex = () => {
 										delay: 0.15,
 										ease: "easeOut",
 									}}
-									className="text-white/80 text-center"
+									className="text-(--primary-foreground)/80 text-center"
 								>
 									{img.description}
 								</motion.p>

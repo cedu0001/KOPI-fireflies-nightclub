@@ -12,8 +12,10 @@ const GlobalNavBtn = ({ href, label, active, hovered, onHover }) => {
 		<motion.a
 			href={href}
 			onMouseEnter={onHover}
-			className={`relative px-4 py-2 block cursor-pointer transition-colors ${
-				active ? "text-[var(--highlight-secondary)]" : "text-white hover:text-[var(--highlight-secondary)]"
+			className={`relative px-(--space-s) py-(--space-2xs) block cursor-pointer transition-colors ${
+				active
+					? "text-[var(--highlight-secondary)]"
+					: "text-(--primary-foreground) hover:text-[var(--highlight-secondary)]"
 			}`}
 			initial="initial"
 			animate={hovered ? "hovered" : "initial"}
@@ -21,7 +23,7 @@ const GlobalNavBtn = ({ href, label, active, hovered, onHover }) => {
 			{(active || hovered) && (
 				<MotionImage
 					src="/assets/bottom_line_header.png"
-					alt="border graphic"
+					alt="Bottom line graphic asset/image"
 					layoutId="nav-pill"
 					width={100}
 					height={5}

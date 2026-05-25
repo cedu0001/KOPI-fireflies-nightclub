@@ -57,7 +57,7 @@ const FeaturedEventsClient = ({ events }) => {
 						animate={{ opacity: 1, x: 0 }}
 						exit={{ opacity: 0, x: -50 }}
 						transition={{ duration: 0.3 }}
-						className="flex flex-col md:flex-row gap-12 items-center justify-center"
+						className="flex flex-col md:flex-row gap-(--space-xl) items-center justify-center"
 					>
 						{currentGroup.map((event) => (
 							<section key={event.id} className="max-w-[400px] w-full">
@@ -68,12 +68,12 @@ const FeaturedEventsClient = ({ events }) => {
 				</AnimatePresence>
 			</div>
 
-			<div className="flex gap-3 mt-6">
+			<div className="flex gap-(--space-xs) mt-(--space-m)">
 				{groupedEvents.map((_, index) => (
 					<button key={index} onClick={() => setActiveIndex(index)} className="focus:outline-none">
 						<div
 							className={`w-[20px] h-[20px] transition-colors duration-300 cursor-pointer ${
-								activeIndex === index ? "bg-(--highlight-secondary)" : "bg-white"
+								activeIndex === index ? "bg-(--highlight-secondary)" : "bg-(--primary-foreground)"
 							}`}
 						/>
 					</button>

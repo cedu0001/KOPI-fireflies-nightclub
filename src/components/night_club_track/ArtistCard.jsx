@@ -26,15 +26,17 @@ const ArtistCard = ({ track, isActive, onClick }) => {
 				className="object-cover transition duration-300 group-hover:scale-110"
 			/>
 
-			<div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition">
+			<div className="absolute inset-0 bg-(--primary)/30 opacity-0 group-hover:opacity-100 transition">
 				<div className="corner-triangles" />
 
 				<div className="absolute inset-0 flex items-center justify-center z-20">
-					<FaRegPlayCircle size={50} className="text-pink-500" />
+					<FaRegPlayCircle size={50} className="text-(--highlight-secondary)" />
 				</div>
 
-				<div className="absolute bottom-0 left-0 w-full bg-black/70 py-3 px-2 z-10">
-					<p className="text-white text-sm font-bold uppercase text-center truncate">{track.title}</p>
+				<div className="absolute bottom-0 left-0 w-full bg-(--primary)/70 py-(--space-xs) px-(--space-2xs) z-10">
+					<p className="text-(--primary-foreground) text-sm font-bold uppercase text-center truncate">
+						{track.title}
+					</p>
 				</div>
 			</div>
 		</button>

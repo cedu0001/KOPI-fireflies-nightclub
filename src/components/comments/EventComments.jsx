@@ -1,49 +1,30 @@
-const EventComments = ({comments}) => {
-    return ( 
-        <article>
-           <h2>COMMENTS</h2>
-            <div className="flex flex-col gap-6">
+const EventComments = ({ comments }) => {
+	return (
+		<article>
+			<h2>COMMENTS</h2>
+			<div className="flex flex-col gap-(--space-m)">
+				{comments.map((comment) => {
+					const formattedDate = new Date(comment.date).toLocaleDateString("en-GB", {
+						day: "2-digit",
+						month: "short",
+						year: "numeric",
+					});
 
-        {comments.map((comment) => {
+					return (
+						<article key={comment.id}>
+							<div className="mb-(--space-2xs) flex gap-(--space-s) items-baseline">
+								<h5 className="!py-0">{comment.name}</h5>
 
-          const formattedDate =
-            new Date(comment.date)
-              .toLocaleDateString(
-                "en-GB",
-                {
-                  day: "2-digit",
-                  month: "short",
-                  year: "numeric",
-                }
-              );
+								<span className="text-highlight-secondary">Posted {formattedDate}</span>
+							</div>
 
-          return (
-            <article
-              key={comment.id}
-              
-            >
+							<p className="max-w-200">{comment.content}</p>
+						</article>
+					);
+				})}
+			</div>
+		</article>
+	);
+};
 
-              <div className="mb-2 flex gap-4 items-baseline">
-
-                <h5 className="!py-0">
-                  {comment.name}
-                </h5>
-
-                <span className="text-highlight-secondary">
-                  Posted {formattedDate}
-                </span>
-
-              </div>
-
-              <p className="max-w-200">{comment.content}</p>
-
-            </article>
-          );
-        })}
-
-      </div>
-        </article>
-     );
-}
- 
 export default EventComments;

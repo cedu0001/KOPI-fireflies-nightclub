@@ -14,7 +14,7 @@ const TestimonialsClient = ({ data }) => {
 	const currentItem = data[activeIndex];
 
 	return (
-		<section className="flex flex-col items-center justify-center my-10 relative bg-index full-width py-10">
+		<section className="flex flex-col items-center justify-center my-(--space-xl) relative bg-index full-width py-(--space-xl)">
 			<div className="relative w-full overflow-hidden min-h-[400px] flex items-center justify-center">
 				<AnimatePresence mode="wait">
 					<motion.div
@@ -39,7 +39,7 @@ const TestimonialsClient = ({ data }) => {
 				</AnimatePresence>
 			</div>
 
-			<div className="flex gap-3 mt-6 z-10">
+			<div className="flex gap-(--space-xs) mt-(--space-m) z-10">
 				{data.map((item, index) => (
 					<button
 						key={`dot-${item.id}`}
@@ -54,9 +54,9 @@ const TestimonialsClient = ({ data }) => {
 						)}
 
 						<div
-							className={`w-[20px] h-[20px] mb-[10px] transition-colors duration-300 ${
-								activeIndex === index ? "bg-(--highlight-secondary)" : "bg-white"
-							} hover:shadow-[0_2px_5px_#17171748] hover:cursor-pointer`}
+							className={`w-[20px] h-[20px] mb-(--space-xs) transition-colors duration-300 ${
+								activeIndex === index ? "bg-(--highlight-secondary)" : "bg-(--primary-foreground)"
+							} hover:cursor-pointer`}
 						/>
 					</button>
 				))}
