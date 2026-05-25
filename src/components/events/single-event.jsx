@@ -26,18 +26,19 @@ const formattedEventstart = new Intl.DateTimeFormat("en-GB", {
 }).format(new Date(event.date));
 
   return (
-    <article>
-        <section className="relative full-width">
+    <article className="full-width">
+        <section className="relative">
         <Image
         src={`${process.env.NEXT_PUBLIC_API_URL}${event.heroAsset.url}`}
         width={event.heroAsset.width}
         height={event.heroAsset.height}
         alt={event.heroAsset.alt}
-        className="full-width w-screen relative z-0"
+        className="w-full relative z-0 object-cover"
       />
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/20 to-primary"/>
       </section>
-      <section className="flex relative justify-between z-20 -mt-28 mb-12 col-2">
+      <div className="max-w-[1200px] mx-auto px-4">
+      <section className="flex relative justify-between z-20 -mt-28 mb-12">
         <div>
       <h1 className="inline-block z-30 !py-0 mr-4">{event.title}</h1>
       <h2 className="inline-block z-30 !py-0  !text-highlight-secondary">{formattedDate}</h2>
@@ -99,6 +100,7 @@ const formattedEventstart = new Intl.DateTimeFormat("en-GB", {
         <Link href={`/book-table?event=${event.id}`}>
         <Button variant="highlight">BOOK NOW</Button></Link>
       </section>
+      </div>
     </article>
   );
 }
