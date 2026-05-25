@@ -23,6 +23,7 @@ const FeaturedEventCard = ({ event }) => {
   return (
     <article>
     
+      <Link href={`/book-table?event=${event.id}`}>
     <motion.section
   className="image-hover relative"
   initial="rest"
@@ -61,13 +62,11 @@ const FeaturedEventCard = ({ event }) => {
 
     <div className="flex flex-1 items-center justify-center">
 
-      <Link href={`/events/${event.slug}`}>
 
         <Button variant="highlight">
-          READ MORE
+          BOOK NOW
         </Button>
 
-      </Link>
 
     </div>
 
@@ -86,9 +85,9 @@ const FeaturedEventCard = ({ event }) => {
         duration: 0.3,
       }}
       className="
-        bg-primary/70
+      bg-primary/70
       "
-    >
+      >
 
       <p>
         {event.excerpt}
@@ -99,6 +98,7 @@ const FeaturedEventCard = ({ event }) => {
   </motion.div>
 
 </motion.section>
+      </Link>
 
       <section className="bg-highlight-primary">
 

@@ -58,7 +58,7 @@ const EventPagination = ({ events }) => {
       <Pagination className="mt-20">
 
         <PaginationContent>
-
+      {currentPage > 1 && (
           <PaginationItem>
             <PaginationPrevious
               href="#"
@@ -71,6 +71,7 @@ const EventPagination = ({ events }) => {
               }}
             />
           </PaginationItem>
+          )}
 
           {Array.from({
             length: totalPages,
@@ -90,7 +91,7 @@ const EventPagination = ({ events }) => {
               </PaginationLink>
             </PaginationItem>
           ))}
-
+          {currentPage < totalPages && (
           <PaginationItem>
             <PaginationNext
               href="#"
@@ -103,6 +104,7 @@ const EventPagination = ({ events }) => {
               }}
             />
           </PaginationItem>
+          )}
 
         </PaginationContent>
 

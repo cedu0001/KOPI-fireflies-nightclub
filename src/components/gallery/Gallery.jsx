@@ -13,7 +13,8 @@ const Gallery = ({
   return (
     <motion.div
     initial={{ opacity: 0, x: -150}}
-    animate= {{opacity: 1, x: 0}}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true, amount: 0.7 }}
     transition={{duration: 1, ease: "easeOut"}}
     className="image-hover"
     onClick={clicked}

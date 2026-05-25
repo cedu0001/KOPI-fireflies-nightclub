@@ -61,6 +61,32 @@ const selectedEventTitle =
             type="email" placeholder="Your Email"
             defaultValue={state.values?.email}
             className="max-w-148 min-w-48"/>
+          
+            <Select
+            value={String(selectedEvent)} 
+            onValueChange={(value) => setSelectedEvent(value)}
+            className="
+            w-full border border-input
+            bg-transparent px-2.5 py-4
+            max-w-148 min-w-48 mb-4
+            text-text"      >
+                <SelectTrigger className="w-full max-w-148 min-w-48">
+                    <SelectValue>
+                    {selectedEventTitle ||
+                    "Select Event"}
+                    </SelectValue>
+                </SelectTrigger>
+            <SelectContent>
+          {events.map((event) => (
+            <SelectItem
+              key={event.id}
+              value={String(event.id)}
+            >
+              {event.title}
+            </SelectItem>
+          ))}
+          </SelectContent>
+        </Select>
 
             <Select
             value={String(selectedTable)}
@@ -94,10 +120,10 @@ const selectedEventTitle =
   </SelectContent>
 </Select>
 <input
-type="hidden"
-name="table"
-value={selectedTable || ""}/>
-            <InputBasic
+            type="hidden"
+            name="table"
+            value={selectedTable || ""}/>
+<InputBasic
             name="guests"
             type="number" placeholder="Number Of Guests"
             min={1}
@@ -108,32 +134,6 @@ value={selectedTable || ""}/>
             }}
            defaultValue={state.values?.guests}
             className="max-w-148 min-w-48"/>
-          
-            <Select
-            value={String(selectedEvent)} 
-            onValueChange={(value) => setSelectedEvent(value)}
-            className="
-            w-full border border-input
-            bg-transparent px-2.5 py-4
-            max-w-148 min-w-48 mb-4
-            text-text"      >
-                <SelectTrigger className="w-full max-w-148 min-w-48">
-                    <SelectValue>
-                    {selectedEventTitle ||
-                    "Select Event"}
-                    </SelectValue>
-                </SelectTrigger>
-            <SelectContent>
-          {events.map((event) => (
-            <SelectItem
-              key={event.id}
-              value={String(event.id)}
-            >
-              {event.title}
-            </SelectItem>
-          ))}
-          </SelectContent>
-        </Select>
         <input
         type="hidden"
         name="eventId"
@@ -144,12 +144,13 @@ value={selectedTable || ""}/>
             defaultValue={state.values?.phone}
             className="max-w-148 min-w-48"/>
             </section>
+
             <textarea
             name="content"
         placeholder="Your comment"
         type="text"
         defaultValue={state.values?.content}
-        className="h-40 border w-full outline-none px-2.5 pt-2.5 mb-8"
+        className="h-40 border w-full focus:border-highlight-primary     outline-none px-2.5 pt-2.5 mb-8"
       />
       <div className="flex justify-end">
         <Button variant="secondary" type="submit">

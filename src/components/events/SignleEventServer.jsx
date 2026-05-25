@@ -1,0 +1,51 @@
+import SingleEvent from "@/components/events/single-event";
+import CommentForm from "@/components/comments/CommentForm";
+import EventComments from "@/components/comments/EventComments";
+import Banner from "@/components/Banner";
+import GlobalNav from "@/components/globalnavigation/GlobalNav";
+
+export default async function SingleEventServer({
+  params,
+}) {
+const {slug} = await params;
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/events`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  const data = await response.json();
+
+  const event = data.find(
+    (event) => event.slug === slug
+  );
+
+  if (!event) {
+    return <h1>Event not found</h1>;
+  }
+
+  const commentsResponse = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/comments?eventId=${event.id}`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  const comments =
+    await commentsResponse.json();
+
+  return (
+    <main>
+      <GlobalNav />
+
+      <Banner title={event.title} />
+
+      <SingleEvent event={event} />
+
+      <EventComments comments={comments} />
+
+      <CommentForm eventId={event.id} />
+    </main>
+  );
+}
