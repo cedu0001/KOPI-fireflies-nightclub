@@ -4,114 +4,94 @@ import { useState } from "react";
 import EventCard from "@/components/events/EventCard";
 
 import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
+	Pagination,
+	PaginationContent,
+	PaginationItem,
+	PaginationLink,
+	PaginationNext,
+	PaginationPrevious,
 } from "@/components/ui/pagination";
 
 const EVENTS_PER_PAGE = 3;
 
 const EventPagination = ({ events }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+	const [currentPage, setCurrentPage] = useState(1);
 
-  const startIndex =
-    (currentPage - 1) * EVENTS_PER_PAGE;
+	const startIndex = (currentPage - 1) * EVENTS_PER_PAGE;
 
-  const endIndex =
-    startIndex + EVENTS_PER_PAGE;
+	const endIndex = startIndex + EVENTS_PER_PAGE;
 
-  const currentEvents =
-    events.slice(startIndex, endIndex);
+	const currentEvents = events.slice(startIndex, endIndex);
 
-  const totalPages =
-    Math.ceil(events.length / EVENTS_PER_PAGE);
+	const totalPages = Math.ceil(events.length / EVENTS_PER_PAGE);
 
-  return (
-    <article className="full-width">
+	return (
+		<article className="full-width">
+			{currentEvents.map((event, index) => {
+				const actualIndex = startIndex + index;
 
-      {currentEvents.map((event, index) => {
+				return (
+					<div key={event.id} className={actualIndex % 2 === 0 ? "full-right" : "full-left"}>
+						<EventCard
+							eventInfo={event}
+							imageUrl={`${process.env.NEXT_PUBLIC_API_URL}${event.heroAsset.url}`}
+							alt={event.heroAsset.alt}
+						/>
+					</div>
+				);
+			})}
 
-        const actualIndex =
-          startIndex + index;
+			<Pagination className="mt-(--space-3xl)">
+				<PaginationContent>
+					{currentPage > 1 && (
+						<PaginationItem>
+							<PaginationPrevious
+								href="#"
+								onClick={(e) => {
+									e.preventDefault();
 
-        return (
-          <div
-            key={event.id}
-            className={
-              actualIndex % 2 === 0
-                ? "full-right"
-                : "full-left"
-            }
-          >
-            <EventCard
-              eventInfo={event}
-              imageUrl={`${process.env.NEXT_PUBLIC_API_URL}${event.heroAsset.url}`}
-              alt={event.heroAsset.alt}
-            />
-          </div>
-        );
-      })}
+									if (currentPage > 1) {
+										setCurrentPage(currentPage - 1);
+									}
+								}}
+							/>
+						</PaginationItem>
+					)}
 
-      <Pagination className="mt-20">
+					{Array.from({
+						length: totalPages,
+					}).map((_, index) => (
+						<PaginationItem key={index}>
+							<PaginationLink
+								href="#"
+								isActive={currentPage === index + 1}
+								onClick={(e) => {
+									e.preventDefault();
+									setCurrentPage(index + 1);
+								}}
+							>
+								{index + 1}
+							</PaginationLink>
+						</PaginationItem>
+					))}
+					{currentPage < totalPages && (
+						<PaginationItem>
+							<PaginationNext
+								href="#"
+								onClick={(e) => {
+									e.preventDefault();
 
-        <PaginationContent>
-      {currentPage > 1 && (
-          <PaginationItem>
-            <PaginationPrevious
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-
-                if (currentPage > 1) {
-                  setCurrentPage(currentPage - 1);
-                }
-              }}
-            />
-          </PaginationItem>
-          )}
-
-          {Array.from({
-            length: totalPages,
-          }).map((_, index) => (
-            <PaginationItem key={index}>
-              <PaginationLink
-                href="#"
-                isActive={
-                  currentPage === index + 1
-                }
-                onClick={(e) => {
-                  e.preventDefault();
-                  setCurrentPage(index + 1);
-                }}
-              >
-                {index + 1}
-              </PaginationLink>
-            </PaginationItem>
-          ))}
-          {currentPage < totalPages && (
-          <PaginationItem>
-            <PaginationNext
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-
-                if (currentPage < totalPages) {
-                  setCurrentPage(currentPage + 1);
-                }
-              }}
-            />
-          </PaginationItem>
-          )}
-
-        </PaginationContent>
-
-      </Pagination>
-
-    </article>
-  );
+									if (currentPage < totalPages) {
+										setCurrentPage(currentPage + 1);
+									}
+								}}
+							/>
+						</PaginationItem>
+					)}
+				</PaginationContent>
+			</Pagination>
+		</article>
+	);
 };
 
 export default EventPagination;

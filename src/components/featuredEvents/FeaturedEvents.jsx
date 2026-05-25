@@ -10,7 +10,7 @@ const FeaturedEvents = async () => {
 	const data = await response.json();
 
 	return (
-		<section className="flex flex-col justify-center items-center gap-6 featured-events-bg full-width my-5">
+		<section className="flex flex-col justify-center items-center gap-(--space-m) featured-events-bg full-width my-5">
 			<Headline title="FEATURED EVENTS" />
 			<FeaturedEventsClient events={data} />
 		</section>

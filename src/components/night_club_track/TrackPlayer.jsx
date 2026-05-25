@@ -20,7 +20,7 @@ const TrackPlayer = ({
 	setShuffle,
 }) => {
 	return (
-		<section className="flex gap-10 items-center mt-10 w-full max-w-5xl">
+		<section className="flex gap-(--space-xl) items-center mt-(--space-xl) w-full max-w-5xl">
 			<Image
 				className="hidden md:block md:w-[350px] lg:w-[450px] h-auto"
 				src={currentTrack.image}
@@ -29,7 +29,7 @@ const TrackPlayer = ({
 				height={300}
 			/>
 
-			<div className="flex flex-col gap-6 w-full">
+			<div className="flex flex-col gap-(--space-m) w-full">
 				<h3 className="text-2xl font-bold">{currentTrack.title}</h3>
 
 				<div className="w-full">
@@ -43,12 +43,12 @@ const TrackPlayer = ({
 					/>
 				</div>
 
-				<div className=" flex flex-col gap-6 items-center md:gap-0 md:flex-row md:justify-between">
-					<p className="mt-2 text-sm">
+				<div className=" flex flex-col gap-(--space-m) items-center md:gap-0 md:flex-row md:justify-between">
+					<p className="mt-(--space-2xs) text-sm">
 						{formatTime(currentTime)} / {formatTime(duration)}
 					</p>
 
-					<div className="flex gap-5 items-center">
+					<div className="flex gap-(--space-m) items-center">
 						<button onClick={prevTrack} className="cursor-pointer">
 							<FaFastBackward size={25} />
 						</button>
@@ -62,13 +62,13 @@ const TrackPlayer = ({
 						</button>
 						<button
 							onClick={() => setShuffle(!shuffle)}
-							className={`transition cursor-pointer ${shuffle ? "text-(--highlight-secondary) scale-110" : "text-white"}`}
+							className={`transition cursor-pointer ${shuffle ? "text-(--highlight-secondary) scale-110" : "text-(--primary-foreground)"}`}
 						>
 							<FaShuffle size={25} />
 						</button>
 					</div>
 
-					<div className="flex items-center gap-3">
+					<div className="flex items-center gap-(--space-xs)">
 						<FaVolumeHigh size={35} />
 
 						<input

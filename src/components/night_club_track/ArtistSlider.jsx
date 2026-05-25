@@ -7,12 +7,11 @@ import ArtistCard from "./ArtistCard";
 
 const ArtistSlider = ({ tracks, currentTrackIndex, setCurrentTrackIndex, setIsPlaying, nextTrack, prevTrack }) => {
 	return (
-		<section className="w-full mt-10 mb-20">
-			{/* til små skærme */}
-			<div className="md:hidden flex flex-col items-center gap-5">
+		<section className="w-full mt-(--space-xl) mb-(--space-3xl)">
+			<div className="md:hidden flex flex-col items-center gap-(--space-m)">
 				<ArtistCard track={tracks[currentTrackIndex]} isActive onClick={() => setIsPlaying(true)} />
 
-				<div className="flex gap-5">
+				<div className="flex gap-(--space-m)">
 					<Button onClick={prevTrack}>
 						<BiSolidLeftArrow />
 					</Button>
@@ -23,8 +22,7 @@ const ArtistSlider = ({ tracks, currentTrackIndex, setCurrentTrackIndex, setIsPl
 				</div>
 			</div>
 
-			{/* til medium skærme */}
-			<div className="hidden md:flex lg:hidden items-center gap-3 overflow-hidden px-10">
+			<div className="hidden md:flex lg:hidden items-center gap-(--space-xs) overflow-hidden px-(--space-xl)">
 				<Button onClick={prevTrack}>
 					<BiSolidLeftArrow />
 				</Button>
@@ -55,8 +53,7 @@ const ArtistSlider = ({ tracks, currentTrackIndex, setCurrentTrackIndex, setIsPl
 				</Button>
 			</div>
 
-			{/* til større skærme */}
-			<div className="hidden lg:flex justify-center gap-3 px-10">
+			<div className="hidden lg:flex justify-center gap-(--space-xs) px-(--space-xl)">
 				{tracks.map((track, index) => (
 					<ArtistCard
 						key={track.id}

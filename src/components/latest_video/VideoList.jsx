@@ -14,10 +14,9 @@ const VideoList = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 
 	return (
-		<section className="flex flex-col items-center w-full my-6 mt-10">
-			{" "}
+		<section className="flex flex-col items-center w-full my-(--space-m) mt-(--space-xl)">
 			<VideoComponent src={videos[currentIndex]} />
-			<div className="flex my-6 justify-center gap-5">
+			<div className="flex my-(--space-m) justify-center gap-(--space-m)">
 				<Button
 					variant="square_btn"
 					onClick={() => setCurrentIndex((prev) => (prev === 0 ? videos.length - 1 : prev - 1))}

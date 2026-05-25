@@ -9,7 +9,7 @@ const MotionImage = motion(Image);
 
 const HeroIndex = () => {
 	return (
-		<section className="hero-index full-width flex flex-col gap-3 items-center p-(--space-3xl) sm:py-50 ">
+		<section className="hero-index full-width flex flex-col gap-(--space-xs) items-center p-(--space-3xl) sm:py-50 ">
 			<div className="mt-auto mb-auto">
 				<motion.div
 					className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-(--color-secondary-foreground)"
@@ -21,7 +21,7 @@ const HeroIndex = () => {
 				</motion.div>
 				<MotionImage
 					src="/assets/icon/Logo.svg"
-					alt="Logo"
+					alt="Logo, NightClub"
 					width={563}
 					height={63}
 					initial={{ rotateX: 90, opacity: 0 }}
@@ -31,7 +31,7 @@ const HeroIndex = () => {
 				/>
 				<MotionImage
 					src="/assets/bottom_line2.png"
-					alt="Logo"
+					alt="Bottom line, graphic asset"
 					width={563}
 					height={63}
 					initial={{ y: "-100%", opacity: 0 }}
@@ -39,18 +39,18 @@ const HeroIndex = () => {
 					transition={{ duration: 1.2, delay: 2.7, ease: "easeInOut" }}
 				/>
 				<motion.div
-					className="flex justify-center gap-5"
+					className="flex justify-center gap-(--space-m)"
 					initial={{ y: "-100%", opacity: 0 }}
 					animate={{ y: 0, opacity: 1 }}
 					transition={{ duration: 1, delay: 3, ease: "easeOut" }}
 				>
 					<Link href="/events">
-						<Button variant="grey" className="min-w-[160px] z-52 block mt-4">
+						<Button variant="grey" className="min-w-[160px] z-52 block mt-(--space-s)">
 							VIEW EVENTS
 						</Button>
 					</Link>
 					<Link href="/book-table">
-						<Button variant="highlight" className="min-w-[160px] z-52 block mt-4">
+						<Button variant="highlight" className="min-w-[160px] z-52 block mt-(--space-s)">
 							BOOK TABLE
 						</Button>
 					</Link>
