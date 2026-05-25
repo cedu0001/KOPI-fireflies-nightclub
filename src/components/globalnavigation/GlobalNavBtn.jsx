@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const MotionImage = motion(Image);
+const MotionImage = motion.create(Image);
 
 const DURATION = 0.3;
 const STAGGER = 0.02;
@@ -15,7 +15,7 @@ const GlobalNavBtn = ({ href, label, active, hovered, onHover }) => {
 			className={`relative px-(--space-s) py-(--space-2xs) block cursor-pointer transition-colors ${
 				active
 					? "text-[var(--highlight-secondary)]"
-					: "text-(--primary-foreground) hover:text-[var(--highlight-secondary)]"
+					: "text-[var(--primary-foreground)] hover:text-[var(--highlight-secondary)]"
 			}`}
 			initial="initial"
 			animate={hovered ? "hovered" : "initial"}
@@ -23,11 +23,11 @@ const GlobalNavBtn = ({ href, label, active, hovered, onHover }) => {
 			{(active || hovered) && (
 				<MotionImage
 					src="/assets/bottom_line_header.png"
-					alt="Bottom line graphic asset/image"
+					alt="Bottom line graphic image"
 					layoutId="nav-pill"
 					width={100}
-					height={5}
-					className="absolute bottom-[-5px] left-0 w-full h-auto object-contain -z-10"
+					height={1}
+					className="absolute bottom-[-5px] left-0 w-full h-auto object-contain z-5"
 					transition={{ type: "spring", duration: 0.6 }}
 				/>
 			)}
