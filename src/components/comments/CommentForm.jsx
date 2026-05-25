@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 
-import commentPost from "@/components/comments/CommentForm";
+import commentPost from "@/components/comments/commentPost";
 
 import { Button } from "@/components/ui/button";
 import { InputBasic } from "@/components/ui/input";
