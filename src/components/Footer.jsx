@@ -10,8 +10,8 @@ import "../app/style.css";
 
 const Footer = () => {
 	return (
-		<footer className="py-10 px-15 full-width">
-			<article className="grid-footer pb-35">
+		<footer className="py-20 px-15 full-width">
+			<article className="grid-footer pb-10">
 				<section className="flex flex-col mr-auto ml-auto">
 					<Image
 						src="/assets/Logo.png"

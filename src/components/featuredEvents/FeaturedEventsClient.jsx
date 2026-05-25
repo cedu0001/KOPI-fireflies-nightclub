@@ -48,7 +48,7 @@ const FeaturedEventsClient = ({ events }) => {
 	}
 
 	return (
-		<section className="flex flex-col items-center justify-center w-full">
+		<section className="flex flex-col items-center justify-center w-full ">
 			<div className="relative overflow-hidden w-full flex justify-center">
 				<AnimatePresence mode="wait">
 					<motion.div
