@@ -1,3 +1,11 @@
+body {
+	position: relative;
+	background-image: url("/assets/bg/pattern_bg.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
 /* Index Hero */
 .hero-index {
 	position: relative;
@@ -40,7 +48,6 @@
 
 /* Global navigation */
 .nav-style {
-	padding: 20px;
 	border-top: 2px solid var(--highlight-primary);
 	border-bottom: 2px solid var(--highlight-primary);
 	background:
@@ -51,12 +58,25 @@
 	background-repeat: no-repeat;
 }
 
-/* Footer */
-footer,
+/* Featured events baggrund */
+.featured-events-bg {
+	position: relative;
+	background: url("/assets/bg/slider_bg_overlay.png") no-repeat center/cover;
+	height: 600px;
+}
+
+/* Footer + andet styling*/
+
 .bg-index {
 	position: relative;
 	background: url("/assets/bg/footerbg.jpg") no-repeat center/cover;
 	height: 900px;
+}
+
+footer {
+	position: relative;
+	background: url("/assets/bg/footerbg.jpg") no-repeat center;
+	height: 600px;
 }
 
 @media (max-width: 640px) {
@@ -75,8 +95,18 @@ footer::before,
 	z-index: 1;
 }
 
+.featured-events-bg::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: black;
+	opacity: 0.6;
+	z-index: 1;
+}
+
 footer > *,
-.bg-index > * {
+.bg-index > *,
+.featured-events-bg > * {
 	position: relative;
 	z-index: 2;
 }

@@ -3,12 +3,22 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
 
+import Link from "next/link";
+
 const MotionImage = motion(Image);
 
 const HeroIndex = () => {
 	return (
-		<section className="hero-index full-width flex flex-col gap-3 items-center p-(--space-3xl) sm:py-50  ">
+		<section className="hero-index full-width flex flex-col gap-3 items-center p-(--space-3xl) sm:py-50 ">
 			<div className="mt-auto mb-auto">
+				<motion.div
+					className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-(--color-secondary-foreground)"
+					initial={{ opacity: 1 }}
+					animate={{ opacity: 0, visibility: "hidden" }}
+					transition={{ duration: 1, delay: 2, ease: "easeInOut" }}
+				>
+					<Image src="/assets/loader/madbars.gif" alt="Loading" width={30} height={30} />
+				</motion.div>
 				<MotionImage
 					src="/assets/icon/Logo.svg"
 					alt="Logo"
@@ -16,7 +26,7 @@ const HeroIndex = () => {
 					height={63}
 					initial={{ rotateX: 90, opacity: 0 }}
 					animate={{ rotateX: 0, opacity: 1 }}
-					transition={{ duration: 0.7 }}
+					transition={{ duration: 0.7, delay: 2.5 }}
 					style={{ transformPerspective: 1000 }}
 				/>
 				<MotionImage
@@ -26,26 +36,24 @@ const HeroIndex = () => {
 					height={63}
 					initial={{ y: "-100%", opacity: 0 }}
 					animate={{ y: 0, opacity: 1 }}
-					transition={{
-						duration: 2.8,
-						ease: "easeInOut",
-					}}
+					transition={{ duration: 1.2, delay: 2.7, ease: "easeInOut" }}
 				/>
 				<motion.div
 					className="flex justify-center gap-5"
 					initial={{ y: "-100%", opacity: 0 }}
 					animate={{ y: 0, opacity: 1 }}
-					transition={{
-						duration: 2.8,
-						ease: "easeInOut",
-					}}
+					transition={{ duration: 1, delay: 3, ease: "easeOut" }}
 				>
-					<button className="bg-black/50 min-w-[160px] block mt-4 relative to-highlight-accent p-4 pr-6 pl-6 border-(--sidebar-ring) border-2 cursor-pointer after:absolute after:top-0 after:right-0 after:w-5 after:h-5 after:border-t-2 after:border-r-2 after:border-primary-foreground/50 after:opacity-100 after:blur-[1px]">
-						VIEW EVENTS
-					</button>
-					<Button variant="highlight" className="min-w-[160px] block mt-4">
-						BOOK TABLE
-					</Button>
+					<Link href="/events">
+						<Button variant="grey" className="min-w-[160px] z-52 block mt-4">
+							VIEW EVENTS
+						</Button>
+					</Link>
+					<Link href="/book-table">
+						<Button variant="highlight" className="min-w-[160px] z-52 block mt-4">
+							BOOK TABLE
+						</Button>
+					</Link>
 				</motion.div>
 			</div>
 		</section>

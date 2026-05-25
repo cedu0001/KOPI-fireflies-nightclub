@@ -13,8 +13,8 @@ const GlobalNav = () => {
 	const [hoveredPath, setHoveredPath] = useState(null);
 
 	return (
-		<header className="w-full full-width nav-style">
-			<div className="flex items-center justify-between py-4 mx-6 lg:mx-20">
+		<header className="w-full full-width nav-style bg-black">
+			<div className="flex items-center justify-between py-4 mx-6 lg:mx-20 bg-black">
 				<Link href="/">
 					<Image src="/assets/Logo.png" width={200} height={54} alt="Logo" className="cursor-pointer" />
 				</Link>
@@ -59,7 +59,6 @@ const GlobalNav = () => {
 					{isOpen ? "✕" : "☰"}
 				</button>
 
-				{/* brugermenu til mobilen vvv */}
 				<ul
 					popover="auto"
 					id="mobile-menu"
