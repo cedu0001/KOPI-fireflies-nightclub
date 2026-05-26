@@ -67,7 +67,7 @@ const FeaturedEventsClient = ({ events }) => {
 					</motion.div>
 				</AnimatePresence>
 			</div>
-
+			{/* Der blev brugt AI hjælp til at tilpasse Dot slider så den passede mere til Featured Events sektionen */}
 			<div className="flex gap-(--space-xs) mt-(--space-m)">
 				{groupedEvents.map((_, index) => (
 					<button key={index} onClick={() => setActiveIndex(index)} className="focus:outline-none">
