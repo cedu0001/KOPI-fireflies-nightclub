@@ -5,6 +5,8 @@ import { BiSolidLeftArrow, BiSolidRightArrow } from "react-icons/bi";
 
 import ArtistCard from "./ArtistCard";
 
+/* Anvendt AI, se beskrivelse under "NightClubTrack.jsx" */
+
 const ArtistSlider = ({ tracks, currentTrackIndex, setCurrentTrackIndex, setIsPlaying, nextTrack, prevTrack }) => {
 	return (
 		<section className="w-full mt-(--space-xl) mb-(--space-3xl)">

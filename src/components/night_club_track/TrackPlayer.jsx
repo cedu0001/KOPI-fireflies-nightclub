@@ -4,6 +4,8 @@ import { FaRegPlayCircle, FaPause, FaFastForward, FaFastBackward } from "react-i
 import { FaVolumeHigh } from "react-icons/fa6";
 import { FaShuffle } from "react-icons/fa6";
 
+/* Anvendt AI, se beskrivelse under "NightClubTrack.jsx" */
+
 const TrackPlayer = ({
 	currentTrack,
 	isPlaying,

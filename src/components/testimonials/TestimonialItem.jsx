@@ -15,6 +15,7 @@ const TestimonialItem = ({ imgsrc, alt, name, testiment, facebook, twitter }) =>
 			<p className="text-center max-w-180">{testiment}</p>
 
 			<div className="flex gap-(--space-m) my-(--space-m)">
+				{/* Anvendt AI, da facebook og twitter data drillede med at blive "vist" */}
 				{facebook && (
 					<Button variant="square_btn">
 						<FaFacebookF size={25} />

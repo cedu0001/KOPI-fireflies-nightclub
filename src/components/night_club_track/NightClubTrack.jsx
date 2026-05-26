@@ -6,6 +6,10 @@ import Headline from "../Headline";
 import TrackPlayer from "./TrackPlayer";
 import ArtistSlider from "./ArtistSlider";
 
+/* Den her og den komponenter der er importet overfor er blevet udviklet ved hjælp af AI
+Først blev der kodet en statisk opsætning og struktur, med minimal styling, derefter er 
+funktionaliteten blevet genereret. Derefter omskrevet og re-stylet om så det passer til projektet  */
+
 const tracks = [
 	{
 		id: 1,

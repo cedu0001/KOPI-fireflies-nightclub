@@ -4,11 +4,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TestimonialItem from "./TestimonialItem";
 
+/* Anvendt AI, se beskrivelse under "Testimonials.jsx" */
+
 const TestimonialsClient = ({ data }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 
 	if (!data || data.length === 0) {
-		return <p className="text-center my-10">Failed to load testimonials...</p>;
+		return <p className="text-center my-(--space-m)">Failed to load testimonials...</p>;
 	}
 
 	const currentItem = data[activeIndex];

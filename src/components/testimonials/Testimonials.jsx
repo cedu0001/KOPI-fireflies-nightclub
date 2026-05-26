@@ -1,6 +1,10 @@
 import { cacheLife } from "next/cache";
 import TestimonialsClient from "./TestimonialsClient";
 
+/* Til Testimonials, TestimonialsClient og TestimonialItem er der blevet anvendt AI hjælp,
+til bedre funktionalitet og struktur, da der var problemer med slider funktionaliteten og 
+opsætningen af data under TestimonialsClient.jsx */
+
 const Testimonials = async () => {
 	"use cache";
 	cacheLife("hours");

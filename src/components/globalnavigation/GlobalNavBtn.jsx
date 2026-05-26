@@ -7,6 +7,10 @@ const MotionImage = motion.create(Image);
 const DURATION = 0.3;
 const STAGGER = 0.02;
 
+/* I dette komponent er der blev anvendt AI hjælp til at få bottom_line_header til at blive animeret korrekt/ 
+til at fungere ift. det udleveret materiale (ca. linje 26-36), samt også linje 15-25, for at når den er active
+så er den neon magenta farve */
+
 const GlobalNavBtn = ({ href, label, active, hovered, onHover }) => {
 	return (
 		<motion.a

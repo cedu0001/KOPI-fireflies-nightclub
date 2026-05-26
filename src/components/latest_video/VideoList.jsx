@@ -8,6 +8,8 @@ import { BiSolidRightArrow } from "react-icons/bi";
 
 import VideoComponent from "./VideoComponent";
 
+/* I dette komponentet er der blevet brugt AI hjælp til at sørge for at slider funktionaliteten fungerede korrekt */
+
 const videos = ["/assets/media/video-crowd.mp4", "/assets/media/video-dj-crowd1.mp4", "/assets/media/video-dj-crowd-2.mp4"];
 
 const VideoList = () => {

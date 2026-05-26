@@ -11,6 +11,7 @@ const HeroIndex = () => {
 	return (
 		<section className="hero-index full-width flex flex-col gap-(--space-xs) items-center p-(--space-3xl) sm:py-50 ">
 			<div className="mt-auto mb-auto">
+				{/* Her er der anvendt AI hjælp for at prøve at lave den der "loading" animation inden den viser hero sektionen*/}
 				<motion.div
 					className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-(--color-secondary-foreground)"
 					initial={{ opacity: 1 }}

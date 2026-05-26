@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { FaRegPlayCircle } from "react-icons/fa";
 
+/* Anvendt AI, se beskrivelse under "NightClubTrack.jsx" */
+
 const ArtistCard = ({ track, isActive, onClick }) => {
 	return (
 		<button
