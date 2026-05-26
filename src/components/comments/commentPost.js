@@ -1,12 +1,10 @@
 "use server";
-
+/* AI hjælp med toISOString, kører på UCT time, hvilket var et helt nyt term for mig */
 export default async function commentPost(
   prevState,
-  formData
+  formData,
 ) {
-  const eventId = Number(
-    formData.get("eventId")
-  );
+  const eventId = Number(formData.get("eventId"));
 
   const name = formData.get("name");
   const content = formData.get("content");
@@ -25,8 +23,7 @@ export default async function commentPost(
       {
         method: "POST",
         headers: {
-          "Content-Type":
-            "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           eventId,
@@ -35,13 +32,11 @@ export default async function commentPost(
           email,
           date: new Date().toISOString(),
         }),
-      }
+      },
     );
 
     if (!response.ok) {
-      throw new Error(
-        "Failed to send comment"
-      );
+      throw new Error("Failed to send comment");
     }
 
     return {
