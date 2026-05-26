@@ -57,15 +57,14 @@ const TableBookingForm = ({
 					defaultValue={state.values?.email}
 					className="max-w-148 min-w-48"
 				/>
-
+				{*AI hjælp, havde først brugt HTML select/option - men havde problemer med styling og er derfor nu shadCN select*}
 				<Select
 					value={String(selectedEvent)}
 					onValueChange={(value) => setSelectedEvent(value)}
-					className="
-            w-full border border-input
-            bg-transparent px-2.5 py-(--space-s)
-            max-w-148 min-w-48 mb-(--space-s)
-            text-text"
+					className="w-full border border-input
+            	bg-transparent px-2.5 py-(--space-s)
+           	 	max-w-148 min-w-48 mb-(--space-s)
+				text-text"
 				>
 					<SelectTrigger className="w-full max-w-148 min-w-48">
 						<SelectValue>{selectedEventTitle || "Select Event"}</SelectValue>
@@ -82,8 +81,7 @@ const TableBookingForm = ({
 				<Select
 					value={String(selectedTable)}
 					onValueChange={(value) => setSelectedTable(Number(value))}
-					className="w-full border border-input bg-transparent max-w-148 min-w-48 text-text"
-				>
+					className="w-full border border-input bg-transparent max-w-148 min-w-48 text-text">
 					<SelectTrigger className="w-full  max-w-148 min-w-48">
 						<SelectValue>{selectedTableLabel || "Select Table"}</SelectValue>
 					</SelectTrigger>
@@ -99,7 +97,10 @@ const TableBookingForm = ({
 						})}
 					</SelectContent>
 				</Select>
+				
+				{*AI brugt til hjælp med hvordan selected value bliver sendt med når vi poster formen, den kom med forslaget om det hidden input her*}
 				<input type="hidden" name="table" value={selectedTable || ""} />
+				<input type="hidden" name="eventId" value={selectedEvent || ""} />
 				<InputBasic
 					name="guests"
 					type="number"
@@ -114,7 +115,6 @@ const TableBookingForm = ({
 					defaultValue={state.values?.guests}
 					className="max-w-148 min-w-48"
 				/>
-				<input type="hidden" name="eventId" value={selectedEvent || ""} />
 				<InputBasic
 					name="phone"
 					type="tel"
