@@ -10,11 +10,15 @@ import NightClubTrack from "@/components/night_club_track/NightClubTrack";
 import WelcomeIndex from "@/components/WelcomeIndex";
 import Gallery from "@/components/gallery/GalleryMap";
 
+export const metadata = {
+	title: "NightClub | Home",
+};
+
 export default async function Home() {
 	return (
 		<main>
 			<HeroIndex />
-			<GlobalNav/>
+			<GlobalNav />
 			<WelcomeIndex />
 			<FeaturedEvents />
 			<Gallery />

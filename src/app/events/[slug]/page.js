@@ -1,14 +1,14 @@
-import SingleEventServer from "@/components/events/SignleEventServer";
+import SingleEventServer from "@/components/events/SingleEventServer";
 import { Suspense } from "react";
 
-export default async function SingleEventSite({
-  params,
-}) {
+export const metadata = {
+	title: "NightClub",
+};
 
-  return (
-    <Suspense fallback="Loading event...">
-    <SingleEventServer params={params} />
-    </Suspense>
-  );
+export default async function SingleEventSite({ params }) {
+	return (
+		<Suspense fallback="Loading event...">
+			<SingleEventServer params={params} />
+		</Suspense>
+	);
 }
- 

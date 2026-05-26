@@ -4,19 +4,20 @@ import { Suspense } from "react";
 import TableStatus from "@/components/TableBooking/TableBookingAvailability";
 import GlobalNav from "@/components/globalnavigation/GlobalNav";
 
-export default async function BookingPage({searchParams,}){
+export const metadata = {
+	title: "NightClub | Book Table",
+	description: "Book a table for our events!",
+};
 
-  return (
-    <main>
-      <GlobalNav/>
-      <Banner title="BOOK TABLE" />
-      <TableStatus />
-      <Suspense
-      fallback={<div>Loading...</div>}>
-      <BookingSystem searchParams={searchParams}
-      />
-      </Suspense>
-
-    </main>
-  );
+export default async function BookingPage({ searchParams }) {
+	return (
+		<main>
+			<GlobalNav />
+			<Banner title="BOOK TABLE" />
+			<TableStatus />
+			<Suspense fallback={<div>Loading...</div>}>
+				<BookingSystem searchParams={searchParams} />
+			</Suspense>
+		</main>
+	);
 }
