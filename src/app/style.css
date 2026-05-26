@@ -9,7 +9,6 @@ body {
 /* Index Hero */
 .hero-index {
 	position: relative;
-	background-image: url("/assets/bg/header_bg_2.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;

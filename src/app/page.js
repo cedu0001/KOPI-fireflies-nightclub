@@ -7,7 +7,7 @@ import FeaturedEvents from "@/components/featuredEvents/FeaturedEvents";
 
 import LatestVideo from "@/components/latest_video/LatestVideo";
 import NightClubTrack from "@/components/night_club_track/NightClubTrack";
-import WelcomeIndex from "@/components/WelcomeIndex";
+import WelcomeSection from "@/components/welcome_section/WelcomeSection";
 import Gallery from "@/components/gallery/GalleryMap";
 
 export const metadata = {
@@ -19,7 +19,7 @@ export default async function Home() {
 		<main>
 			<HeroIndex />
 			<GlobalNav />
-			<WelcomeIndex />
+			<WelcomeSection />
 			<FeaturedEvents />
 			<Gallery />
 			<NightClubTrack />

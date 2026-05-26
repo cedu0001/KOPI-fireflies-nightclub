@@ -28,7 +28,7 @@ const Newsletter = () => {
 				)}
 				<input
 					name="email"
-					className="w-[353px] lg:w-[500px] placeholder-primary-foreground p-(--space-2xs) text-left border-b-2 bg-primary text-primary-foreground border-primary-foreground [a]:hover:bg-primary/80 aria-expanded:bg-primary aria-expanded:text-primary-foreground"
+					className="w-[353px] lg:w-[500px] placeholder-primary-foreground p-(--space-2xs) text-left border-b-2 bg-transparent text-primary-foreground border-primary-foreground [a]:hover:bg-primary/80 aria-expanded:bg-primary aria-expanded:text-primary-foreground"
 					type="email"
 					placeholder="Enter your email"
 				/>
