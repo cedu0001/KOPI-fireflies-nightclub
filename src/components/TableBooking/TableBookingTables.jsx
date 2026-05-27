@@ -16,7 +16,7 @@ const Tables = ({ tables, reservations, selectedEvent, selectedTable, setSelecte
 
 		return "available";
 	};
-
+	{/*AI har assisteret med hvordan den rigtige billedfil blev hentet ved de forskellige status'er*/}
 	const getTableImage = (size, status) => {
 		const imageMap = {
 			small: {
