@@ -75,7 +75,7 @@ const TableBookingForm = ({
           defaultValue={state.values?.email}
           className="max-w-148 min-w-48"
         />
-        {/* AI hjælp, havde først brugt HTML select/option - men havde problemer med styling og er derfor nu shadCN select */}
+        {/* AI hjælp, havde først brugt HTML select/option - men havde problemer med styling (primært fonten) og er derfor nu shadCN select, efter AI's anbefaling da det er nemmere at style */}
         <Select
           value={String(selectedEvent)}
           onValueChange={(value) =>

@@ -6,6 +6,8 @@ import { Select as SelectPrimitive } from "@base-ui/react/select"
 import { cn } from "@/lib/utils"
 import { ChevronDownIcon, CheckIcon, ChevronUpIcon } from "lucide-react"
 
+/* AI brugt til at finde ud af hvorfor højden ikke kunne ændres med Tailwind, viste sig at være noget sizing her inde og det er efterfølgende blevet slettet */
+
 const Select = SelectPrimitive.Root
 
 function SelectGroup({

@@ -16,21 +16,21 @@ const images = [
 		src: "/assets/content-img/thumb2-new.png",
 		title: "NIGHT CLUB",
 		description:
-			"There are many variantions of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable",
+			"Step into the energy of Fireflies Nightclub, where music, lights, and atmosphere come together for unforgettable nights. From live performances and DJ sets to themed events and late-night parties, the club is designed for guests who want a vibrant nightlife experience in the heart of the city.",
 		icon: "/assets/icon/Favicon 1.svg",
 	},
 	{
 		src: "/assets/content-img/Restuarant-AI.png",
 		title: "RESTUARANT",
 		description:
-			"It is a long established fact that a reader with be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution",
+			"Guests can enjoy a carefully selected menu inspired by modern international cuisine, combining quality ingredients with bold flavours. Whether you are sharing dinner with friends or preparing for an evening of music and events, the restaurant creates the perfect setting.",
 		icon: BiDish,
 	},
 	{
 		src: "/assets/content-img/Bar-AI.png",
 		title: "BAR",
 		description:
-			"Contrary to popular belief, Lorem Ipsum is not simply random text. It haas roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin.",
+			"The bar at Fireflies Nightclub serves a wide selection of cocktails, premium spirits, wines, and refreshing beverages throughout the evening. With experienced bartenders and an energetic atmosphere, the bar becomes a natural meeting point where guests can relax, socialize, and enjoy the nightlife experience.",
 		icon: BiDrink,
 	},
 ];
