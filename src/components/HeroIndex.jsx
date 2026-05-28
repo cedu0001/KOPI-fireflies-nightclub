@@ -46,9 +46,19 @@ const HeroIndex = () => {
 					width={563}
 					height={63}
 					initial={{ rotateX: 90, opacity: 0 }}
-					animate={{ rotateX: 0, opacity: 0.8 }}
-					transition={{ duration: 0.7, delay: 0.8 }}
+					animate={{ rotateX: 0, opacity: 1 }}
+					transition={{ duration: 0.8, delay: 0.7 }}
 					style={{ transformPerspective: 1000 }}
+				/>
+
+				<MotionImage
+					src="/assets/quote.png"
+					alt="Text saying: Have a good time"
+					width={563}
+					height={63}
+					initial={{ y: "-100%", opacity: 0 }}
+					animate={{ y: 0, opacity: 1 }}
+					transition={{ duration: 1.2, delay: 1.2, ease: "easeInOut" }}
 				/>
 				<MotionImage
 					src="/assets/bottom_line2.png"
