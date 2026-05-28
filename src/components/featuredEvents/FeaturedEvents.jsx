@@ -1,9 +1,11 @@
 import FeaturedEventsClient from "./FeaturedEventsClient";
 import Headline from "../Headline";
+import { cacheLife } from "next/cache";
 
 const FeaturedEvents = async () => {
-	try {
 	"use cache";
+	cacheLife("hours");
+	try {
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events?_limit=6`);
 
 	const data = await response.json();

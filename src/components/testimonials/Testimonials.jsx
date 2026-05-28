@@ -6,10 +6,10 @@ til bedre funktionalitet og struktur, da der var problemer med slider funktional
 opsætningen af data under TestimonialsClient.jsx */
 
 const Testimonials = async () => {
+	"use cache";
+	cacheLife("hours");
 	
 	try {
-		"use cache";
-		cacheLife("hours");
 		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/testimonials`);
 
 		const data = await response.json();

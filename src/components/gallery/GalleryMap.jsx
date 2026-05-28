@@ -4,9 +4,9 @@ import { cacheLife } from "next/cache";
 
 const GalleryMap = async () => {
 
-	try {
 	"use cache";
 	cacheLife("hours");
+	try {
 
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/gallery?_limit=6`);
 
