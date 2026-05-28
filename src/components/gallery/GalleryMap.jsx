@@ -3,6 +3,8 @@ import Headline from "@/components/Headline";
 import { cacheLife } from "next/cache";
 
 const GalleryMap = async () => {
+
+	try {
 	"use cache";
 	cacheLife("hours");
 
@@ -22,6 +24,11 @@ const GalleryMap = async () => {
 			<GalleryClient galleryData={formattedData} />
 		</article>
 	);
+	} catch (error) {
+		console.error(error);
+
+		return <p>Failed to load Gallery...</p>;
+	}
 };
 
 export default GalleryMap;
