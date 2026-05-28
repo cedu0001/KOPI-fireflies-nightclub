@@ -5,7 +5,7 @@ import TestimonialsClient from "./TestimonialsClient";
 til bedre funktionalitet og struktur, da der var problemer med slider funktionaliteten og 
 opsætningen af data under TestimonialsClient.jsx */
 
-const Testimonials = async () => {
+async function Testimonials () {
 	"use cache";
 	cacheLife("hours");
 	

@@ -2,7 +2,7 @@ import GalleryClient from "./GalleryClient";
 import Headline from "@/components/Headline";
 import { cacheLife } from "next/cache";
 
-const GalleryMap = async () => {
+async function GalleryMap () {
 
 	"use cache";
 	cacheLife("hours");
