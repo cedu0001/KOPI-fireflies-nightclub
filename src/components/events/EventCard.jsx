@@ -10,7 +10,7 @@ const EventCard = ({ eventInfo, imageUrl, alt }) => {
 		})
 		.toUpperCase();
 	return (
-		<article>
+		<article >
 			<Image
 				src={imageUrl}
 				width={eventInfo.heroAsset.width}

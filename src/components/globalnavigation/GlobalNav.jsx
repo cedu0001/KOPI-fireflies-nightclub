@@ -14,12 +14,12 @@ const GlobalNav = () => {
 
 	return (
 		<header className="w-full full-width nav-style bg-(--primary)">
-			<div className="flex items-center justify-between py-(--space-s) mx-(--space-xl) lg:mx-20 bg-(--primary)">
+			<div className="flex items-center justify-between py-(--space-s) bg-(--primary)">
 				<Link href="/">
-					<Image src="/assets/Logo.png" width={200} height={54} alt="Company logo" className="cursor-pointer" />
+					<Image src="/assets/Logo.png" width={200} height={54} alt="Company logo" className="cursor-pointer mx-(--space-m)" />
 				</Link>
 
-				<nav className="hidden md:flex gap-(--space-m)" onMouseLeave={() => setHoveredPath(null)}>
+				<nav className="hidden md:flex gap-(--space-m) mx-(--space-m)" onMouseLeave={() => setHoveredPath(null)}>
 					<GlobalNavBtn
 						href="/"
 						label="HOME"
@@ -54,7 +54,7 @@ const GlobalNav = () => {
 				<button
 					popoverTarget="mobile-menu"
 					onClick={() => setIsOpen(!isOpen)}
-					className=" md:hidden z-1000 text-(--primary-foreground) text-3xl"
+					className=" md:hidden z-1000 text-(--primary-foreground) text-3xl (--space-m)"
 				>
 					{isOpen ? "✕" : "☰"}
 				</button>

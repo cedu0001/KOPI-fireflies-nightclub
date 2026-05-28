@@ -49,6 +49,7 @@ const EventPagination = ({ events }) => {
               eventInfo={event}
               imageUrl={`${process.env.NEXT_PUBLIC_API_URL}${event.heroAsset.url}`}
               alt={event.heroAsset.alt}
+              
             />
           </div>
         );
