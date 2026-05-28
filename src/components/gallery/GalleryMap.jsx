@@ -3,10 +3,8 @@ import Headline from "@/components/Headline";
 import { cacheLife } from "next/cache";
 
 export default async function GalleryMap () {
-
 	"use cache";
 	cacheLife("hours");
-	try {
 
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/gallery?_limit=6`);
 
@@ -24,9 +22,5 @@ export default async function GalleryMap () {
 			<GalleryClient galleryData={formattedData} />
 		</article>
 	);
-	} catch (error) {
-		console.error(error);
-
-		return <p>Failed to load Gallery...</p>;
-	}
+	
 };

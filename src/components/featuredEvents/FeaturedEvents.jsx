@@ -5,7 +5,7 @@ import { cacheLife } from "next/cache";
 export default async function FeaturedEvents () {
 	"use cache";
 	cacheLife("hours");
-	try {
+	
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events?_limit=6`);
 
 	const data = await response.json();
@@ -15,10 +15,5 @@ export default async function FeaturedEvents () {
 			<FeaturedEventsClient events={data} />
 		</section>
 	);
-	}
-	catch (error) {
-		console.error(error);
-
-		return <p>Failed to load Featured Events...</p>;
-	}
+	
 };
