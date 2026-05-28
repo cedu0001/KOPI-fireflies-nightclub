@@ -1,11 +1,13 @@
+import { cacheLife } from "next/cache";
 import TestimonialsClient from "./TestimonialsClient";
 
 /* Til Testimonials, TestimonialsClient og TestimonialItem er der blevet anvendt AI hjælp,
 til bedre funktionalitet og struktur, da der var problemer med slider funktionaliteten og 
 opsætningen af data under TestimonialsClient.jsx */
 
-async function Testimonials () {
+export default async function Testimonials () {
 	"use cache";
+	cacheLife("hours");
 	
 	try {
 		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/testimonials`);
@@ -19,5 +21,3 @@ async function Testimonials () {
 		return <p>Failed to load testimonials...</p>;
 	}
 };
-
-export default Testimonials;
