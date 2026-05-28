@@ -2,7 +2,7 @@ import FeaturedEventsClient from "./FeaturedEventsClient";
 import Headline from "../Headline";
 import { cacheLife } from "next/cache";
 
-async function FeaturedEvents () {
+export async function FeaturedEvents () {
 	"use cache";
 	cacheLife("hours");
 	try {
@@ -22,5 +22,3 @@ async function FeaturedEvents () {
 		return <p>Failed to load Featured Events...</p>;
 	}
 };
-
-export default FeaturedEvents;

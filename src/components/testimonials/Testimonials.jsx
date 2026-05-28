@@ -5,7 +5,7 @@ import TestimonialsClient from "./TestimonialsClient";
 til bedre funktionalitet og struktur, da der var problemer med slider funktionaliteten og 
 opsætningen af data under TestimonialsClient.jsx */
 
-async function Testimonials () {
+export async function Testimonials () {
 	"use cache";
 	cacheLife("hours");
 	
@@ -21,5 +21,3 @@ async function Testimonials () {
 		return <p>Failed to load testimonials...</p>;
 	}
 };
-
-export default Testimonials;
