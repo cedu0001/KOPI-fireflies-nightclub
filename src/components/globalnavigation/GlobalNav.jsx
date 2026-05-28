@@ -13,8 +13,8 @@ const GlobalNav = () => {
 	const [hoveredPath, setHoveredPath] = useState(null);
 
 	return (
-		<header className="w-full full-width nav-style bg-(--primary)">
-			<div className="flex items-center justify-between py-(--space-s) bg-(--primary)">
+		<header className="w-full full-width bg-(--primary)">
+			<div className="flex items-center justify-between py-(--space-s) nav-style">
 				<Link href="/">
 					<Image src="/assets/Logo.png" width={200} height={54} alt="Company logo" className="cursor-pointer mx-(--space-m)" />
 				</Link>
@@ -54,7 +54,7 @@ const GlobalNav = () => {
 				<button
 					popoverTarget="mobile-menu"
 					onClick={() => setIsOpen(!isOpen)}
-					className=" md:hidden z-1000 text-(--primary-foreground) text-3xl (--space-m)"
+					className=" md:hidden z-1000 text-(--primary-foreground) text-3xl mx-(--space-m)"
 				>
 					{isOpen ? "✕" : "☰"}
 				</button>

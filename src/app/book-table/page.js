@@ -3,6 +3,7 @@ import BookingSystem from "@/components/TableBooking/TableBookingServer";
 import { Suspense } from "react";
 import TableStatus from "@/components/TableBooking/TableBookingAvailability";
 import GlobalNav from "@/components/globalnavigation/GlobalNav";
+import Loading from "@/components/Loading";
 
 export const metadata = {
 	title: "NightClub | Book Table",
@@ -15,7 +16,7 @@ export default async function BookingPage({ searchParams }) {
 			<GlobalNav />
 			<Banner title="BOOK TABLE" />
 			<TableStatus />
-			<Suspense fallback={<div>Loading...</div>}>
+			<Suspense fallback={<Loading />}>
 				<BookingSystem searchParams={searchParams} />
 			</Suspense>
 		</main>

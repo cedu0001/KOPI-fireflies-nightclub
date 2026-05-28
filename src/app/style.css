@@ -55,6 +55,7 @@ body {
 
 	background-size: 64px 64px;
 	background-repeat: no-repeat;
+	z-index: 20;
 }
 
 /* Featured events baggrund */
