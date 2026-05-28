@@ -1,31 +1,32 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import TesterList from "@/components/TesterList";
+import GlobalNav from "@/components/globalnavigation/GlobalNav";
+import Newsletter from "@/components/newsletter/Newsletter";
+import Testimonials from "@/components/testimonials/Testimonials";
+import MobileBlog from "@/components/MobileBlog";
+import HeroIndex from "@/components/HeroIndex";
+import FeaturedEvents from "@/components/featuredEvents/FeaturedEvents";
 
-export default function Home() {
-  return (
-    <main>
-      <h1 className="text-5xl font-bold">
-        Welcome to Fireflies Nightclub
-      </h1>
-      <TesterList />
-      <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-        Experience the best nightlife in town with
-        us!
-      </p>
-      <Button variant="default">Click me</Button>
-      <Button
-        variant="secondary"
-        className="block mt-4"
-      >
-        Click me too
-      </Button>
-      <Button
-        variant="highlight"
-        className="block mt-4"
-      >
-        Highlight Button
-      </Button>
-    </main>
-  );
+import LatestVideo from "@/components/latest_video/LatestVideo";
+import NightClubTrack from "@/components/night_club_track/NightClubTrack";
+import WelcomeSection from "@/components/welcome_section/WelcomeSection";
+import Gallery from "@/components/gallery/GalleryMap";
+
+export const metadata = {
+	title: "NightClub | Home",
+};
+
+export default async function Home() {
+	return (
+		<main>
+			<HeroIndex />
+			<GlobalNav />
+			<WelcomeSection />
+			<FeaturedEvents />
+			<Gallery />
+			<NightClubTrack />
+			<LatestVideo />
+			<Testimonials />
+			<MobileBlog />
+			<Newsletter />
+		</main>
+	);
 }

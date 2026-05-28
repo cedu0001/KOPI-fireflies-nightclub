@@ -1,0 +1,83 @@
+"use client";
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+const MotionImage = motion.create(Image);
+
+const DURATION = 0.3;
+const STAGGER = 0.02;
+
+/* I dette komponent er der blev anvendt AI hjælp til at få bottom_line_header til at blive animeret korrekt/ 
+til at fungere ift. det udleveret materiale (ca. linje 26-36), samt også linje 15-25, for at når den er active
+så er den neon magenta farve */
+
+const GlobalNavBtn = ({ href, label, active, hovered, onHover }) => {
+	return (
+		<motion.a
+			href={href}
+			onMouseEnter={onHover}
+			className={`relative px-(--space-s) py-(--space-2xs) block cursor-pointer transition-colors ${
+				active
+					? "text-[var(--highlight-secondary)]"
+					: "text-[var(--primary-foreground)] hover:text-[var(--highlight-secondary)]"
+			}`}
+			initial="initial"
+			animate={hovered ? "hovered" : "initial"}
+		>
+			{(active || hovered) && (
+				<MotionImage
+					src="/assets/bottom_line_header.png"
+					alt="Bottom line graphic image"
+					layoutId="nav-pill"
+					width={100}
+					height={1}
+					className="absolute bottom-[-5px] left-0 w-full h-auto object-contain z-5"
+					transition={{ type: "spring", duration: 0.6 }}
+				/>
+			)}
+
+			<div className="relative overflow-hidden">
+				<div className="flex">
+					{label.split("").map((l, i) => (
+						<motion.span
+							key={i}
+							className="inline-block whitespace-pre"
+							variants={{
+								initial: { y: 0 },
+								hovered: { y: "-100%" },
+							}}
+							transition={{
+								duration: DURATION,
+								ease: "easeInOut",
+								delay: STAGGER * i,
+							}}
+						>
+							{l}
+						</motion.span>
+					))}
+				</div>
+				<div className="absolute inset-0 flex">
+					{label.split("").map((l, i) => (
+						<motion.span
+							key={i}
+							className="inline-block whitespace-pre text-header-hover"
+							variants={{
+								initial: { y: "100%" },
+								hovered: { y: 0 },
+							}}
+							transition={{
+								duration: DURATION,
+								ease: "easeInOut",
+								delay: STAGGER * i,
+							}}
+						>
+							{l}
+						</motion.span>
+					))}
+				</div>
+			</div>
+		</motion.a>
+	);
+};
+
+export default GlobalNavBtn;

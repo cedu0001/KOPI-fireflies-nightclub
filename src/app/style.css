@@ -1,0 +1,192 @@
+body {
+	position: relative;
+	background-image: url("/assets/bg/pattern_bg.jpg");
+	background-repeat: repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+/* Index Hero */
+.hero-index {
+	position: relative;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+
+	animation: heroFade 2s ease forwards;
+	opacity: 0;
+}
+
+@media (max-width: 640px) {
+	.hero-index {
+		background-size: 400%;
+		background-position: center;
+		height: 600px;
+	}
+}
+
+@keyframes heroFade {
+	to {
+		opacity: 1;
+	}
+}
+
+.hero-index::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: black;
+	opacity: 0.65;
+	z-index: 1;
+}
+
+.hero-index > * {
+	position: relative;
+	z-index: 2;
+}
+
+/* Global navigation */
+.nav-style {
+	border-top: 2px solid var(--highlight-primary);
+	border-bottom: 2px solid var(--highlight-primary);
+	background:
+		linear-gradient(135deg, var(--highlight-primary) 0 32px, transparent 32px) top left,
+		linear-gradient(-45deg, var(--highlight-primary) 0 32px, transparent 32px) bottom right;
+
+	background-size: 64px 64px;
+	background-repeat: no-repeat;
+}
+
+/* Featured events baggrund */
+.featured-events-bg {
+	position: relative;
+	background: url("/assets/bg/slider_bg_overlay.png") no-repeat center/cover;
+	height: 600px;
+}
+
+/* Footer + andet styling*/
+
+.bg-index {
+	position: relative;
+	background: url("/assets/bg/footerbg.jpg") no-repeat center/cover;
+	height: 900px;
+}
+
+footer {
+	position: relative;
+	background: url("/assets/bg/footerbg.jpg") no-repeat center;
+	height: 600px;
+}
+
+@media (max-width: 640px) {
+	.bg-index {
+		height: 1200px;
+	}
+}
+
+footer::before,
+.bg-index::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: black;
+	opacity: 0.9;
+	z-index: 1;
+}
+
+.featured-events-bg::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: black;
+	opacity: 0.6;
+	z-index: 1;
+}
+
+footer > *,
+.bg-index > *,
+.featured-events-bg > * {
+	position: relative;
+	z-index: 2;
+}
+
+.grid-footer {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 0.5em;
+}
+
+@media (width <= 1024px) {
+	.grid-footer {
+		grid-template-columns: 1fr;
+		justify-content: center;
+		text-align: center;
+	}
+}
+
+article.grid-footer:nth-child(2) {
+	grid-column: 2;
+}
+
+.text-style {
+	color: var(--highlight-secondary);
+}
+
+p.text-style {
+	font-size: var(--step--1);
+}
+
+/* Latest Video */
+.video-wrapper {
+	position: relative;
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+}
+
+.video-wrapper::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 64px;
+	height: 64px;
+	background: linear-gradient(135deg, var(--highlight-primary) 0 50%, transparent 50% 100%);
+	z-index: 10;
+}
+
+.video-wrapper::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 64px;
+	height: 64px;
+	background: linear-gradient(-45deg, var(--highlight-primary) 0 50%, transparent 50% 100%);
+	z-index: 10;
+}
+
+/* Night Club Track */
+
+.corner-triangles {
+	position: absolute;
+	inset: 0;
+	z-index: 30;
+	pointer-events: none;
+
+	background:
+		linear-gradient(135deg, var(--highlight-primary) 0 32px, transparent 32px) top left,
+		linear-gradient(-45deg, var(--highlight-primary) 0 32px, transparent 32px) bottom right;
+
+	background-size: 64px 64px;
+	background-repeat: no-repeat;
+}
+
+/* Welcome In NightClub */
+
+.clip-triangle-tl {
+	clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.clip-triangle-br {
+	clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
