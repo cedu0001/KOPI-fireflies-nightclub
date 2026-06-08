@@ -1,7 +1,7 @@
 "use client";
 
 import bookingPost from "./bookingPost";
-import { useActionState } from "react";
+import { useActionState, useState, useEffect } from "react";
 import { InputBasic } from "../ui/input";
 import { Button } from "../ui/button";
 import {
@@ -11,6 +11,8 @@ import {
   SelectValue,
   Select,
 } from "../ui/select";
+import { Dialog, DialogContent} from "../ui/dialog";
+
 const TableBookingForm = ({
   events,
   selectedEvent,
@@ -26,6 +28,11 @@ const TableBookingForm = ({
       message: "",
       values: {},
     });
+
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (state.success) {setOpen(true);}}, [state.success]);
 
   const isReserved = (tableNumber) => {
     if (!selectedEvent) return false;
@@ -45,6 +52,7 @@ const TableBookingForm = ({
   const selectedTableLabel = selectedTable
     ? `Table ${selectedTable}`
     : "";
+  
 
   return (
     <form
@@ -53,12 +61,19 @@ const TableBookingForm = ({
       key={state.message}
     >
       <h2>BOOK A TABLE</h2>
-      {state?.message && (
-        <div
-          className={`border p-(--space-s) ${state.success ? "" : "border-(--color-destructive) text-(--color-destructive)"}`}
-        >
-          {state.message}
-        </div>
+
+      <Dialog open={open} onOpenChange={setOpen}>
+      <DialogContent>
+      <h3>Reservation Complete</h3>
+
+      <p>{state.message}</p>
+      </DialogContent>
+      </Dialog>
+
+      {state?.message && !state.success && (
+      <div className="border border-(--color-destructive) text-(--color-destructive) p-(--space-s)">
+      {state.message}
+      </div>
       )}
       <section className="flex flex-wrap gap-(--space-s)">
         <div className="flex gap-(--space-s) w-full">
