@@ -1,6 +1,7 @@
 "use client";
 
 import bookingPost from "./bookingPost";
+import "@/app/gallery.css"
 import { useActionState, useState, useEffect } from "react";
 import { InputBasic } from "../ui/input";
 import { Button } from "../ui/button";
@@ -52,7 +53,15 @@ const TableBookingForm = ({
   const selectedTableLabel = selectedTable
     ? `Table ${selectedTable}`
     : "";
-  
+
+  const selectedTableData = tables.find(
+  (table) =>
+    Number(table.tableNumber) ===
+    Number(selectedTable),
+);
+
+const maxGuests =
+  selectedTableData?.seats || 8;
 
   return (
     <form
@@ -75,8 +84,8 @@ const TableBookingForm = ({
       {state.message}
       </div>
       )}
-      <section className="flex flex-wrap gap-(--space-s)">
-        <div className="flex gap-(--space-s) w-full">
+      <section className="form-grid">
+     {/*    <div className="flex gap-(--space-s) w-full"> */}
         <InputBasic
           name="name"
           type="text"
@@ -91,9 +100,9 @@ const TableBookingForm = ({
           defaultValue={state.values?.email}
           className="max-w-148 min-w-48"
         />
-        </div>
+        {/* </div> */}
         {/* AI hjælp, havde først brugt HTML select/option - men havde problemer med styling (primært fonten) og er derfor nu shadCN select, efter AI's anbefaling da det er nemmere at style */}
-        <div className="flex gap-(--space-s) w-full">
+        {/* <div className="flex gap-(--space-s) w-full"> */}
         <Select
           value={String(selectedEvent)}
           onValueChange={(value) =>
@@ -157,9 +166,9 @@ const TableBookingForm = ({
             )}
           </SelectContent>
         </Select>
-        </div>
+        {/* </div> */}
         {/* AI brugt til hjælp med hvordan selected value bliver sendt med når vi poster formen, den kom med forslaget om det hidden input her */}
-        <div className="flex gap-(--space-s) w-full">
+        {/* <div className="flex gap-(--space-s) w-full"> */}
         <input
           type="hidden"
           name="table"
@@ -175,10 +184,10 @@ const TableBookingForm = ({
           type="number"
           placeholder="Number Of Guests"
           min={1}
-          max={8}
+          max={maxGuests}
           onChange={(e) => {
-            if (e.target.value > 8) {
-              e.target.value = 8;
+            if (e.target.value > maxGuests) {
+              e.target.value = maxGuests;
             }
           }}
           defaultValue={state.values?.guests}
@@ -191,7 +200,7 @@ const TableBookingForm = ({
           defaultValue={state.values?.phone}
           className="max-w-148 min-w-48"
         />
-        </div>
+       {/*  </div> */}
       </section>
 
       <textarea

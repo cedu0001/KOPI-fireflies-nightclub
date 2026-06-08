@@ -57,7 +57,7 @@
   opacity: 1;
 }
 
-/* Event signle-view */
+/* Event single-view */
 .event-layout {
   display: flex;
   justify-content: space-between;
@@ -70,4 +70,12 @@
     
   }
 
+}
+@media(min-width: 748px) {
+.form-grid {
+    display: grid;
+    grid-template-columns: minmax(350px, 600px) minmax(350px, 600px);
+    gap: var(--space-s);
+   
+  }
 }
