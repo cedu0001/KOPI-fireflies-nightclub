@@ -14,18 +14,18 @@ const ArtistSlider = ({ tracks, currentTrackIndex, setCurrentTrackIndex, setIsPl
 				<ArtistCard track={tracks[currentTrackIndex]} isActive onClick={() => setIsPlaying(true)} />
 
 				<div className="flex gap-(--space-m)">
-					<Button onClick={prevTrack}>
+					<Button aria-label="Play previous track" onClick={prevTrack}>
 						<BiSolidLeftArrow />
 					</Button>
 
-					<Button onClick={nextTrack}>
+					<Button aria-label="Play next track" onClick={nextTrack}>
 						<BiSolidRightArrow />
 					</Button>
 				</div>
 			</div>
 
 			<div className="hidden md:flex lg:hidden items-center gap-(--space-xs) overflow-hidden px-(--space-xl)">
-				<Button onClick={prevTrack}>
+				<Button aria-label="Play previous track" onClick={prevTrack}>
 					<BiSolidLeftArrow />
 				</Button>
 
@@ -50,7 +50,7 @@ const ArtistSlider = ({ tracks, currentTrackIndex, setCurrentTrackIndex, setIsPl
 					</div>
 				</div>
 
-				<Button onClick={nextTrack}>
+				<Button aria-label="Play next track" onClick={nextTrack}>
 					<BiSolidRightArrow />
 				</Button>
 			</div>

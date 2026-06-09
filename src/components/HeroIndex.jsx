@@ -76,12 +76,20 @@ const HeroIndex = () => {
 					transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
 				>
 					<Link href="/events">
-						<Button variant="grey" className="min-w-[160px] z-52 block mt-(--space-s)">
+						<Button
+							aria-label="View events that the NightClub offers"
+							variant="grey"
+							className="min-w-[160px] z-52 block mt-(--space-s)"
+						>
 							VIEW EVENTS
 						</Button>
 					</Link>
 					<Link href="/book-table">
-						<Button variant="highlight" className="min-w-[160px] z-52 block mt-(--space-s)">
+						<Button
+							aria-label="Book a table"
+							variant="highlight"
+							className="min-w-[160px] z-52 block mt-(--space-s)"
+						>
 							BOOK TABLE
 						</Button>
 					</Link>

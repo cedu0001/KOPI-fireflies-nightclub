@@ -39,7 +39,7 @@ const Footer = () => {
 								alt="Photo of a DJ looking at a crowd"
 							></Image>
 							<div>
-								<p className="!pt-0">Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+								<p className="!pt-0">Ny DJ annonceret til weekendens største fest i klubben.</p>
 								<p className="text-style">April 17, 2026</p>
 							</div>
 						</div>
@@ -52,7 +52,7 @@ const Footer = () => {
 								alt="Photo from a crowd looking towards a scene, there's a band playing"
 							/>
 							<div>
-								<p className="!pt-0">Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+								<p className="!pt-0">Eksklusive drinks og nye events skaber stemning hele natten.</p>
 								<p className="text-style">April 17, 2026</p>
 							</div>
 						</div>
@@ -64,7 +64,7 @@ const Footer = () => {
 							<BsTwitterX size={24} color="var(--highlight-secondary)" />
 							<div className="flex flex-col">
 								<p className="!py-0">
-									It is a long established fact that a reader will be distracted by the readable...{" "}
+									The lights are on, the bass is pumping, and the dance floor is calling.
 								</p>
 								<p className="text-style">5 hours ago</p>
 							</div>
@@ -73,7 +73,7 @@ const Footer = () => {
 							<BsTwitterX size={24} color="var(--highlight-secondary)" />
 							<div className="flex flex-col">
 								<p className="!py-0">
-									It is a long established fact that a reader will be distracted by the readable...{" "}
+									The biggest party of the weekend starts soon. Gather your crew and join us.
 								</p>
 								<p className="text-style">5 hours ago</p>
 							</div>
@@ -87,13 +87,13 @@ const Footer = () => {
 				<div className="flex flex-col order-1 lg:order-2">
 					<p>Stay Connected With Us</p>
 					<div className="flex flex-row gap-(--space-m) justify-center mb-(--space-xl)">
-						<Button variant="square_btn">
+						<Button aria-label="Facebook link" variant="square_btn">
 							<FaFacebookF />
 						</Button>
-						<Button variant="square_btn">
+						<Button aria-label="Snapchat link" variant="square_btn">
 							<FaSnapchatGhost />
 						</Button>
-						<Button variant="square_btn">
+						<Button aria-label="Instagram link" variant="square_btn">
 							<FaInstagram />
 						</Button>
 					</div>

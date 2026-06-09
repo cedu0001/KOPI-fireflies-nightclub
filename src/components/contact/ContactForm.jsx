@@ -28,7 +28,7 @@ const ContactForm = () => {
 				className="h-40 border w-full focus:border-highlight-primary outline-none px-2.5"
 			/>
 			<div className="flex justify-end">
-				<Button variant="secondary" className="mt-8" type="submit">
+				<Button variant="secondary" className="mt-8" type="submit" aria-label="Send contact form">
 					{isPending ? "Sending..." : "SEND"}
 				</Button>
 			</div>
