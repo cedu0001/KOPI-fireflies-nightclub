@@ -27,7 +27,7 @@ const CommentForm = ({ eventId }) => {
 				</div>
 			)}
 			<div className="flex gap-(--space-s)">
-				<InputBasic name="name" placeholder="Your name" type="text" className="max-w-148 min-w-48"/>
+				<InputBasic name="name" placeholder="Your name" type="text" className="max-w-148 min-w-48" />
 				<InputBasic name="email" placeholder="Your Email" type="email" className="max-w-148 min-w-48" />
 			</div>
 
@@ -38,7 +38,7 @@ const CommentForm = ({ eventId }) => {
 			/>
 
 			<div className="flex justify-end">
-				<Button variant="secondary" type="submit">
+				<Button variant="secondary" type="submit" aria-label="Post comment">
 					{isPending ? "Posting..." : "POST COMMENT"}
 				</Button>
 			</div>

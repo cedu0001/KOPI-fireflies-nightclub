@@ -90,7 +90,9 @@ export default function EventSinglePage({ event }) {
 				<section className="flex justify-end my-(--space-s) items-center">
 					<h3 className="!py-0 mr-(--space-s)">{event.price}</h3>
 					<Link href={`/book-table?event=${event.id}`}>
-						<Button variant="highlight">BOOK NOW</Button>
+						<Button aria-label={`Book ${event.title}`} variant="highlight">
+							BOOK NOW
+						</Button>
 					</Link>
 				</section>
 			</div>

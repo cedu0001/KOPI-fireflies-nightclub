@@ -32,7 +32,12 @@ const Newsletter = () => {
 					type="email"
 					placeholder="Enter your email"
 				/>
-				<Button variant="secondary" type="submit" className="w-[173px] mr-auto ml-auto">
+				<Button
+					aria-label="Subscribe to newsletter"
+					variant="secondary"
+					type="submit"
+					className="w-[173px] mr-auto ml-auto"
+				>
 					{isPending ? "Sending..." : "SEND"}
 				</Button>
 			</Form>

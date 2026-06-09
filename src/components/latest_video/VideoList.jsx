@@ -20,13 +20,18 @@ const VideoList = () => {
 			<VideoComponent src={videos[currentIndex]} />
 			<div className="flex my-(--space-m) justify-center gap-(--space-m)">
 				<Button
+					aria-label="Previous video"
 					variant="square_btn"
 					onClick={() => setCurrentIndex((prev) => (prev === 0 ? videos.length - 1 : prev - 1))}
 				>
 					<BiSolidLeftArrow />
 				</Button>
 
-				<Button variant="square_btn" onClick={() => setCurrentIndex((prev) => (prev + 1) % videos.length)}>
+				<Button
+					aria-label="Next video"
+					variant="square_btn"
+					onClick={() => setCurrentIndex((prev) => (prev + 1) % videos.length)}
+				>
 					<BiSolidRightArrow />
 				</Button>
 			</div>
