@@ -1,8 +1,12 @@
 "use client";
 
 import bookingPost from "./bookingPost";
-import "@/app/gallery.css"
-import { useActionState, useState, useEffect } from "react";
+import "@/app/gallery.css";
+import {
+  useActionState,
+  useState,
+  useEffect,
+} from "react";
 import { InputBasic } from "../ui/input";
 import { Button } from "../ui/button";
 import {
@@ -12,7 +16,10 @@ import {
   SelectValue,
   Select,
 } from "../ui/select";
-import { Dialog, DialogContent} from "../ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+} from "../ui/dialog";
 
 const TableBookingForm = ({
   events,
@@ -33,7 +40,10 @@ const TableBookingForm = ({
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (state.success) {setOpen(true);}}, [state.success]);
+    if (state.success) {
+      setOpen(true);
+    }
+  }, [state.success]);
 
   const isReserved = (tableNumber) => {
     if (!selectedEvent) return false;
@@ -55,13 +65,12 @@ const TableBookingForm = ({
     : "";
 
   const selectedTableData = tables.find(
-  (table) =>
-    Number(table.tableNumber) ===
-    Number(selectedTable),
-);
+    (table) =>
+      Number(table.tableNumber) ===
+      Number(selectedTable),
+  );
 
-const maxGuests =
-  selectedTableData?.seats || 8;
+  const maxGuests = selectedTableData?.seats || 8;
 
   return (
     <form
@@ -72,20 +81,24 @@ const maxGuests =
       <h2>BOOK A TABLE</h2>
 
       <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="bg-primary w-[380px] justify-center">
-      <h4 className="text-text !pb-0">Reservation Complete</h4>
+        <DialogContent className="bg-primary w-[380px] justify-center">
+          <h4 className="text-text !pb-0">
+            Reservation Complete
+          </h4>
 
-      <p className="mr-auto ml-auto">{state.message}</p>
-      </DialogContent>
+          <p className="mr-auto ml-auto">
+            {state.message}
+          </p>
+        </DialogContent>
       </Dialog>
 
       {state?.message && !state.success && (
-      <div className="border border-(--color-destructive) text-(--color-destructive) p-(--space-s)">
-      {state.message}
-      </div>
+        <div className="border border-(--color-destructive) text-(--color-destructive) p-(--space-s)">
+          {state.message}
+        </div>
       )}
       <section className="form-grid">
-     {/*    <div className="flex gap-(--space-s) w-full"> */}
+        {/*    <div className="flex gap-(--space-s) w-full"> */}
         <InputBasic
           name="name"
           type="text"
@@ -113,7 +126,7 @@ const maxGuests =
            	 	max-w-148 min-w-48 mb-(--space-s)
 				text-text"
         >
-          <SelectTrigger className="w-full max-w-148 min-w-48">
+          <SelectTrigger className="w-full mb-4 max-w-148 min-w-48">
             <SelectValue>
               {selectedEventTitle ||
                 "Select Event"}
@@ -138,7 +151,7 @@ const maxGuests =
           }
           className="w-full border border-input bg-transparent max-w-148 min-w-48 text-text"
         >
-          <SelectTrigger className="w-full  max-w-148 min-w-48">
+          <SelectTrigger className="w-full mb-4 max-w-148 min-w-48">
             <SelectValue>
               {selectedTableLabel ||
                 "Select Table"}
@@ -200,7 +213,7 @@ const maxGuests =
           defaultValue={state.values?.phone}
           className="max-w-148 min-w-48"
         />
-       {/*  </div> */}
+        {/*  </div> */}
       </section>
 
       <textarea
