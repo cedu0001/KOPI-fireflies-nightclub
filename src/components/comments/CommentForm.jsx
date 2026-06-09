@@ -26,8 +26,8 @@ const CommentForm = ({ eventId }) => {
 					{state.message}
 				</div>
 			)}
-			<div className="flex gap-(--space-s)">
-				<InputBasic name="name" placeholder="Your name" type="text" className="max-w-148 min-w-48" />
+			<div className="form-grid">
+				<InputBasic name="name" placeholder="Your name" type="text" className="max-w-148 min-w-48"/>
 				<InputBasic name="email" placeholder="Your Email" type="email" className="max-w-148 min-w-48" />
 			</div>
 
