@@ -8,6 +8,7 @@ import { FaRegPlayCircle } from "react-icons/fa";
 const ArtistCard = ({ track, isActive, onClick }) => {
 	return (
 		<button
+			aria-label={`Play ${track.title}`}
 			onClick={onClick}
 			className={`
 				group

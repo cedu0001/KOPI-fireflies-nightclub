@@ -10,7 +10,7 @@ const EventCard = ({ eventInfo, imageUrl, alt }) => {
 		})
 		.toUpperCase();
 	return (
-		<article >
+		<article>
 			<Image
 				src={imageUrl}
 				width={eventInfo.heroAsset.width}
@@ -27,7 +27,9 @@ const EventCard = ({ eventInfo, imageUrl, alt }) => {
 				<p>{eventInfo.description}</p>
 				<div className="flex justify-end mt-(--space-s) mb-(--space-s)">
 					<Link href={`/events/${eventInfo.slug}`}>
-						<Button variant="secondary">READ MORE</Button>
+						<Button aria-label={`Read more about ${eventInfo.title}`} variant="secondary">
+							READ MORE
+						</Button>
 					</Link>
 				</div>
 			</section>

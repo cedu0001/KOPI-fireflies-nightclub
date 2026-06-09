@@ -44,6 +44,7 @@ const TestimonialsClient = ({ data }) => {
 			<div className="flex gap-(--space-xs) mt-(--space-m) z-10">
 				{data.map((item, index) => (
 					<button
+						aria-label={`Show testimonial from ${item.name}`}
 						key={`dot-${item.id}`}
 						onClick={() => setActiveIndex(index)}
 						className="relative focus:outline-none"

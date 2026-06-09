@@ -30,7 +30,7 @@ const images = [
 		src: "/assets/content-img/Bar-AI.png",
 		title: "BAR",
 		description:
-			"The bar at Fireflies Nightclub serves a wide selection of cocktails, premium spirits, wines, and refreshing beverages throughout the evening. With experienced bartenders and an energetic atmosphere, the bar becomes a natural meeting point where guests can relax, socialize, and enjoy the nightlife experience.",
+			"The bar at Fireflies Nightclub serves a wide selection of cocktails, premium spirits, and wines throughout the evening. With experienced bartenders and an energetic atmosphere, the bar becomes a natural meeting point where guests can relax, socialize, and enjoy the nightlife experience.",
 		icon: BiDrink,
 	},
 ];

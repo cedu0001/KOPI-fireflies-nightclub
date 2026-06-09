@@ -38,7 +38,7 @@ const CommentForm = ({ eventId }) => {
 			/>
 
 			<div className="flex justify-end">
-				<Button variant="secondary" type="submit">
+				<Button variant="secondary" type="submit" aria-label="Post comment">
 					{isPending ? "Posting..." : "POST COMMENT"}
 				</Button>
 			</div>

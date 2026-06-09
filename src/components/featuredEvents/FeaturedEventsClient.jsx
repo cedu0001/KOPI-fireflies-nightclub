@@ -70,7 +70,12 @@ const FeaturedEventsClient = ({ events }) => {
 			{/* Der blev brugt AI hjælp til at tilpasse Dot slider så den passede mere til Featured Events sektionen */}
 			<div className="flex gap-(--space-xs) mt-(--space-m)">
 				{groupedEvents.map((_, index) => (
-					<button key={index} onClick={() => setActiveIndex(index)} className="focus:outline-none">
+					<button
+						aria-label={`Show featured events page ${index + 1}`}
+						key={index}
+						onClick={() => setActiveIndex(index)}
+						className="focus:outline-none"
+					>
 						<div
 							className={`w-[20px] h-[20px] transition-colors duration-300 cursor-pointer ${
 								activeIndex === index ? "bg-(--highlight-secondary)" : "bg-(--primary-foreground)"

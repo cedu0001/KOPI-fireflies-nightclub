@@ -16,7 +16,13 @@ const GlobalNav = () => {
 		<header className="w-full full-width bg-(--primary)">
 			<div className="flex items-center justify-between py-(--space-s) nav-style">
 				<Link href="/">
-					<Image src="/assets/Logo.png" width={200} height={54} alt="Company logo" className="cursor-pointer mx-(--space-m)" />
+					<Image
+						src="/assets/Logo.png"
+						width={200}
+						height={54}
+						alt="Company logo"
+						className="cursor-pointer mx-(--space-m)"
+					/>
 				</Link>
 
 				<nav className="hidden md:flex gap-(--space-m) mx-(--space-m)" onMouseLeave={() => setHoveredPath(null)}>
@@ -52,6 +58,7 @@ const GlobalNav = () => {
 				</nav>
 
 				<button
+					aria-label="Open menu"
 					popoverTarget="mobile-menu"
 					onClick={() => setIsOpen(!isOpen)}
 					className=" md:hidden z-1000 text-(--primary-foreground) text-3xl mx-(--space-m)"
@@ -65,6 +72,7 @@ const GlobalNav = () => {
 					className=" h-dvh w-dvw hidden md:hidden [&:popover-open]:flex flex-col gap-(--space-s) bg-(--primary) [&:popover-open]:bg-opacity-60 text-(--primary-foreground) border p-(--space-m) text-center justify-center [&:popover-open]:md:hidden "
 				>
 					<button
+						aria-label="Close menu"
 						popoverTarget="mobile-menu"
 						onClick={() => setIsOpen(!isOpen)}
 						className="absolute top-0 right-2 p-(--space-m) md:hidden z-1000 text-(--primary-foreground) text-3xl"

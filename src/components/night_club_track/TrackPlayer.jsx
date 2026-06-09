@@ -51,18 +51,19 @@ const TrackPlayer = ({
 					</p>
 
 					<div className="flex gap-(--space-m) items-center">
-						<button onClick={prevTrack} className="cursor-pointer">
+						<button aria-label="Play previous track" onClick={prevTrack} className="cursor-pointer">
 							<FaFastBackward size={25} />
 						</button>
 
-						<button onClick={() => setIsPlaying(!isPlaying)} className="cursor-pointer">
+						<button aria-label="Pause track" onClick={() => setIsPlaying(!isPlaying)} className="cursor-pointer">
 							{isPlaying ? <FaPause size={52} /> : <FaRegPlayCircle size={52} />}
 						</button>
 
-						<button onClick={nextTrack} className="cursor-pointer">
+						<button aria-label="Play next track" onClick={nextTrack} className="cursor-pointer">
 							<FaFastForward size={25} />
 						</button>
 						<button
+							aria-label="Shuffle track"
 							onClick={() => setShuffle(!shuffle)}
 							className={`transition cursor-pointer ${shuffle ? "text-(--highlight-secondary) scale-110" : "text-(--primary-foreground)"}`}
 						>

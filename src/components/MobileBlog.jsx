@@ -15,8 +15,8 @@ const MobileBlog = () => {
 				<h4>MORE THAN 20 YEA...</h4>
 				<p className="!text-(--highlight-secondary) font-medium">BY: Admin / 3 Comments / 16 Nov 2018</p>
 				<p className="!text-(length:--step--1)">
-					It is a long established fact that a reader will be distracted by the readable content of a page when
-					looking at its layout
+					Our latest events bring together top DJs, stunning visuals, and a vibrant crowd, creating memorable
+					experiences every weekend.
 				</p>
 			</article>
 			<article className="max-w-[352px] mx-auto my-(--space-m)">
@@ -29,8 +29,8 @@ const MobileBlog = () => {
 				<h4>MORE THAN 20 YEA...</h4>
 				<p className="!text-(--highlight-secondary) font-medium">BY: Admin / 3 Comments / 16 Nov 2018</p>
 				<p className="!text-(length:--step--1)">
-					It is a long established fact that a reader will be distracted by the readable content of a page when
-					looking at its layout
+					Get ready for unforgettable nights filled with incredible music, signature cocktails, and an atmosphere
+					that keeps the energy high until sunrise.
 				</p>
 			</article>
 			<article className="max-w-[352px] mx-auto my-(--space-m)">
@@ -43,8 +43,8 @@ const MobileBlog = () => {
 				<h4>MORE THAN 20 YEA...</h4>
 				<p className="!text-(--highlight-secondary) font-medium">BY: Admin / 3 Comments / 16 Nov 2018</p>
 				<p className="!text-(length:--step--1)">
-					It is a long established fact that a reader will be distracted by the readable content of a page when
-					looking at its layout
+					Discover upcoming parties, special guest performances, and exclusive offers designed to make every visit
+					to our club unique.
 				</p>
 			</article>
 		</section>

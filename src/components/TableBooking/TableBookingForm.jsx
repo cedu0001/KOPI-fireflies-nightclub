@@ -22,20 +22,19 @@ import {
 } from "../ui/dialog";
 
 const TableBookingForm = ({
-  events,
-  selectedEvent,
-  setSelectedEvent,
-  selectedTable,
-  setSelectedTable,
-  reservations,
-  tables,
+	events,
+	selectedEvent,
+	setSelectedEvent,
+	selectedTable,
+	setSelectedTable,
+	reservations,
+	tables,
 }) => {
-  const [state, formAction, isPending] =
-    useActionState(bookingPost, {
-      success: false,
-      message: "",
-      values: {},
-    });
+	const [state, formAction, isPending] = useActionState(bookingPost, {
+		success: false,
+		message: "",
+		values: {},
+	});
 
   const [open, setOpen] = useState(false);
 
@@ -55,14 +54,9 @@ const TableBookingForm = ({
     );
   };
 
-  const selectedEventTitle = events.find(
-    (event) =>
-      String(event.id) === String(selectedEvent),
-  )?.title;
+	const selectedEventTitle = events.find((event) => String(event.id) === String(selectedEvent))?.title;
 
-  const selectedTableLabel = selectedTable
-    ? `Table ${selectedTable}`
-    : "";
+	const selectedTableLabel = selectedTable ? `Table ${selectedTable}` : "";
 
   const selectedTableData = tables.find(
     (table) =>
@@ -216,20 +210,20 @@ const TableBookingForm = ({
         {/*  </div> */}
       </section>
 
-      <textarea
-        name="content"
-        placeholder="Your comment"
-        type="text"
-        defaultValue={state.values?.content}
-        className="h-40 border w-full focus:border-highlight-primary outline-none px-2.5 pt-2.5 mb-(--space-l)"
-      />
-      <div className="flex justify-end">
-        <Button variant="secondary" type="submit">
-          {isPending ? "Reserving..." : "RESERVE"}
-        </Button>
-      </div>
-    </form>
-  );
+			<textarea
+				name="content"
+				placeholder="Your comment"
+				type="text"
+				defaultValue={state.values?.content}
+				className="h-40 border w-full focus:border-highlight-primary outline-none px-2.5 pt-2.5 mb-(--space-l)"
+			/>
+			<div className="flex justify-end">
+				<Button aria-label="Reserve table" variant="secondary" type="submit">
+					{isPending ? "Reserving..." : "RESERVE"}
+				</Button>
+			</div>
+		</form>
+	);
 };
 
 export default TableBookingForm;
