@@ -72,10 +72,10 @@ const maxGuests =
       <h2>BOOK A TABLE</h2>
 
       <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent>
-      <h3>Reservation Complete</h3>
+      <DialogContent className="bg-primary w-[380px] justify-center">
+      <h4 className="text-text !pb-0">Reservation Complete</h4>
 
-      <p>{state.message}</p>
+      <p className="mr-auto ml-auto">{state.message}</p>
       </DialogContent>
       </Dialog>
 
