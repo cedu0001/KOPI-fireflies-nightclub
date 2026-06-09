@@ -41,7 +41,8 @@ export default async function commentPost(
 
     return {
       success: true,
-      message: "Comment posted!",
+      message:
+        "Comment posted! Refresh to see your comment.",
     };
   } catch (error) {
     console.error(error);
